@@ -1,0 +1,39 @@
+/* Modern space dark UI */
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background: radial-gradient(circle at top, #0a0f2c, #000000);
+color: white;
+overflow-x: hidden;
+}
+.navbar {
+display: flex;
+justify-content: space-between;
+padding: 1rem 2rem;
+background: rgba(0,0,0,0.4);
+position: sticky;
+top: 0;
+backdrop-filter: blur(6px);
+}
+.navbar nav a {
+margin-left: 1rem;
+color: white;
+text-decoration: none;
+}
+.hero {
+text-align: center;
+padding: 100px 20px;
+}
+.section {
+padding: 60px 20px;
+max-width: 900px;
+margin: auto;
+}
+button {
+padding: 12px 20px;
+border: none;
+background: cyan;
+cursor: pointer;
+font-weight: bold;
+border-radius: 4px;
+}
