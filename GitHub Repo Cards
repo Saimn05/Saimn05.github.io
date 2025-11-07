@@ -1,0 +1,11 @@
+.repo-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 20px;
+margin-top: 30px;
+}
+.repo-grid div {
+background: rgba(255,255,255,0.1);
+padding: 20px;
+border-radius: 10px;
+}
