@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Contact — Saimn Zuhairi</title>
-<link rel="stylesheet" href="./style.css?v=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Saimn Zuhairi</title>
+  <link rel="stylesheet" href="./Style.css?v=1">
 </head>
 <body>
-<canvas id="starfield"></canvas>
-<header class="navbar">
-<h1 class="logo">Saimn Zuhairi</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="projects.html">Projects</a>
-<a href="experience.html">Experience</a>
-<a href="contact.html" class="active">Contact</a>
-</nav>
-</header>
+  <canvas id="starfield"></canvas>
 
+  <header class="navbar">
+    <h1 class="logo">Saimn Zuhairi</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="Experience.html">Experience</a>
+      <a href="Contact.html" class="active">Contact</a>
+    </nav>
+  </header>
 
-<main class="section contact-section">
-<h2>Contact</h2>
-<p>If you wish to connect regarding internships, projects or entry-level roles in aerospace, please email me.</p>
+  <main class="section contact-section">
+    <h2>Contact</h2>
+    <p>If you wish to connect regarding internships, projects or entry-level roles in aerospace, please email me.</p>
 
+    <p><strong>Email:</strong> <a href="mailto:saimn2213@gmail.com">saimn2213@gmail.com</a></p>
 
-<p><strong>Email:</strong> <a href="mailto:saimn2213@gmail.com">saimn2213@gmail.com</a></p>
+    <h3 style="margin-top:28px;">Quick Contact Form (uses mailto)</h3>
+    <form action="mailto:saimn2213@gmail.com" method="GET" enctype="text/plain">
+      <label for="name">Name</label><br>
+      <input id="name" name="name" required><br>
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="6" required></textarea><br>
+      <button type="submit" class="btn">Send Email</button>
+    </form>
 
+    <a href="Saimn_Zuhairi_Resume_compressed-1%20(1).pdf" download class="btn" style="display:inline-block;margin-top:18px;">Download Résumé (PDF)</a>
+  </main>
 
-<h3 style="margin-top:28px;">Quick Contact Form (uses mailto)</h3>
-<form action="mailto:saimn2213@gmail.com" method="GET" enctype="text/plain">
-<label for="name">Name</label><br>
-<input id="name" name="name" required><br>
-<label for="message">Message</label><br>
-<textarea id="message" name="message" rows="6" required></textarea><br>
-<button type="submit" class="btn">Send Email</button>
-</form>
-
-
-<a href="resume.pdf" download class="btn" style="display:inline-block;margin-top:18px;">Download Résumé (PDF)</a>
-</main>
-
-
-<script src="script.js"></script>
+  <script src="./Script.js" defer></script>
 </body>
 </html>
