@@ -1,0 +1,10 @@
+fetch("https://api.github.com/users/saimn2213/repos")
+.then((res) => res.json())
+.then((repos) => {
+const repoGrid = document.getElementById("githubRepos");
+repos.slice(0, 6).forEach((repo) => {
+const div = document.createElement("div");
+div.innerHTML = `<strong>${repo.name}</strong><p>${repo.description || "No description available"}</p>`;
+repoGrid.appendChild(div);
+});
+});
