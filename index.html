@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="./style.css?v=1">
+  <title>Home — Saimn Zuhairi</title>
+  <link rel="stylesheet" href="./style.css?v=2">
 </head>
 <body>
-  <canvas id="starfield"></canvas>
+  <canvas id="starfield" aria-hidden="true"></canvas>
 
   <header class="navbar">
     <a class="logo" href="index.html" aria-label="Home">
       <h1>Saimn Zuhairi</h1>
     </a>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html" class="active">Projects</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
       <a href="experience.html">Experience</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -23,26 +23,32 @@
 
   <main class="section">
     <section id="about" class="about-section">
-      <h2>About Me</h2>
-      <p>Hi — I'm Saimn Zuhairi, an aspiring aerospace engineer with interests in flight dynamics, control systems, and embedded systems. I build simulation projects in Python, small hardware prototypes, and this responsive portfolio site. I'm open to internships and entry-level roles — feel free to <a href="contact.html">reach out</a>.</p>
+      <img class="profile-img" src="images/profile.svg" alt="Profile picture">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>Hi — I'm Saimn Zuhairi, an aspiring aerospace engineer interested in flight dynamics, control systems, and embedded systems. I build simulations in Python, small hardware prototypes, and this responsive portfolio site. I'm open to internships and entry-level roles — feel free to <a href="contact.html">reach out</a>.</p>
+      </div>
     </section>
 
     <h2>Engineering & Aerospace Projects</h2>
 
     <div class="project-grid">
       <article class="project-card">
+        <img src="images/project1.svg" alt="Gravity car">
         <h3>Gravity-Powered Car (Recycled Materials)</h3>
         <p>Prototype built from plastic bottles, chopsticks and bottle caps. Focus on low friction rolling, axle alignment and mass distribution.</p>
         <a href="#" class="btn small">View details</a>
       </article>
 
       <article class="project-card">
+        <img src="images/project2.svg" alt="Flight sim">
         <h3>Flight Path Simulation (Python)</h3>
         <p>Simulation of simplified flight dynamics using numerical integration in Python; includes basic PID control experiments and plotting.</p>
         <a href="#" class="btn small">View code</a>
       </article>
 
       <article class="project-card">
+        <img src="images/project3.svg" alt="Portfolio site">
         <h3>Responsive Portfolio Website</h3>
         <p>This site — built with HTML, CSS and vanilla JS — demonstrates responsive design, accessibility, and deployment on GitHub Pages.</p>
         <a href="#" class="btn small">Source</a>
@@ -50,7 +56,7 @@
     </div>
 
     <h2 style="margin-top:48px;">Latest GitHub Repositories</h2>
-    <div id="githubRepos" class="repo-grid"></div>
+    <div id="githubRepos" class="repo-grid" aria-live="polite"></div>
   </main>
 
   <script src="./script.js" defer></script>
