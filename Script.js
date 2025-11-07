@@ -1,11 +1,6 @@
 // script.js — shared by all pages
 
-// Resize-aware starfield canvas
-const canvas = document.getElementById('starfield');
-const ctx = canvas ? canvas.getContext('2d') : null;
-let width = window.innerWidth;
-let height = window.innerHeight;
-let stars = [];
+let canvas, ctx, width, height, stars = [];
 
 function resizeCanvas(){
   if(!canvas) return;
@@ -13,12 +8,10 @@ function resizeCanvas(){
   canvas.width = width; canvas.height = height;
 }
 
-window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
-
 function initStars(){
   if(!ctx) return;
   stars = [];
-  const count = Math.floor((width * height) / 5000);
+  const count = Math.max(30, Math.floor((width * height) / 5000));
   for(let i=0;i<count;i++){
     stars.push({ x: Math.random()*width, y: Math.random()*height, z: Math.random()*1.6+0.2 });
   }
@@ -36,16 +29,15 @@ function drawStars(){
   requestAnimationFrame(drawStars);
 }
 
-// Start starfield
-resizeCanvas(); initStars(); drawStars();
-
 // Resume download button (if present)
-const resumeButtons = document.querySelectorAll('[href="resume.pdf"], #resumeButton');
-resumeButtons.forEach(b => {
-  b.addEventListener('click', (e)=>{
-    // allow default download
+function wireResumeButtons(){
+  const resumeButtons = document.querySelectorAll('[href="resume.pdf"], #resumeButton');
+  resumeButtons.forEach(b => {
+    b.addEventListener('click', (e)=>{
+      // allow default download; could add analytics here
+    });
   });
-});
+}
 
 // Auto-fetch GitHub repos (only on pages that have #githubRepos)
 function loadGitHubRepos(username='saimn2213', max=6){
@@ -54,6 +46,7 @@ function loadGitHubRepos(username='saimn2213', max=6){
   fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=${max}`)
   .then(r=>r.json())
   .then(list=>{
+    if(!Array.isArray(list)){ container.innerHTML = '<p>Unable to load GitHub repositories.</p>'; return; }
     list.forEach(repo=>{
       const d = document.createElement('div');
       const name = document.createElement('strong'); name.textContent = repo.name;
@@ -69,7 +62,15 @@ function loadGitHubRepos(username='saimn2213', max=6){
   });
 }
 
-// Run loader on pages
 document.addEventListener('DOMContentLoaded', ()=>{
+  // Initialize canvas and starfield after DOM exists
+  canvas = document.getElementById('starfield');
+  ctx = canvas ? canvas.getContext('2d') : null;
+  resizeCanvas();
+  initStars();
+  drawStars();
+  window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
+
+  wireResumeButtons();
   loadGitHubRepos();
 });
