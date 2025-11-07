@@ -1,68 +1,39 @@
-
+/* Basic responsive layout and styles */
 :root{
---bg-1:#050617;
---bg-2:#0a0f2c;
---accent:#4df3ff;
---muted:rgba(255,255,255,0.8);
+  --bg:#061021;
+  --card:#0f2030;
+  --muted:#9fb0c3;
+  --accent:#7bd389;
+  --text:#e7f1f7;
 }
 
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-background: radial-gradient(circle at top, var(--bg-2), #000);
-color: #fff;
-line-height:1.45;
-min-height:100vh;
-}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
 
+canvas#starfield{position:fixed;inset:0;z-index:0;opacity:0.35;pointer-events:none}
 
-/* Navbar */
-.navbar{display:flex;align-items:center;justify-content:space-between;padding:14px 5%;position:sticky;top:0;background:rgba(5,6,23,0.4);backdrop-filter:blur(6px);z-index:30}
-.navbar .logo{font-weight:700;color:var(--accent)}
-.navbar nav a{color:var(--muted);margin-left:18px;text-decoration:none;font-weight:600}
-.navbar nav a.active, .navbar nav a:hover{color:var(--accent)}
+.navbar{position:sticky;top:0;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px;z-index:10}
+.navbar .logo h1{margin:0;font-size:1.1rem;color:var(--accent)}
+.navbar nav a{color:var(--text);text-decoration:none;margin-left:14px;opacity:0.9}
+.navbar nav a.active{color:var(--accent)}
 
+.section{position:relative;z-index:5;max-width:980px;margin:48px auto;padding:0 20px}
+.about-section{display:flex;gap:20px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px}
+.profile-img{width:110px;height:110px;border-radius:8px;background:#091426;flex:0 0 110px}
+.about-text h2{margin:0 0 8px 0}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px}
+.project-card{background:var(--card);padding:16px;border-radius:10px;display:flex;flex-direction:column;gap:10px;align-items:start}
+.project-card img{width:100%;height:120px;object-fit:cover;border-radius:6px;background:#071420}
+.btn{background:var(--accent);color:#012;display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+.btn.small{padding:6px 8px;font-size:0.9rem}
+.contact-section input, .contact-section textarea{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+.repo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.repo-grid div{background:var(--card);padding:12px;border-radius:8px}
+.timeline{display:flex;flex-direction:column;gap:12px}
+.meta{color:var(--muted);font-size:0.9rem;margin-top:4px}
 
-/* Hero */
-.hero{padding:90px 20px 60px;text-align:center}
-.hero h2{font-size:2rem;margin:0 0 12px}
-.hero p{color:var(--muted)}
-
-
-/* Sections */
-.section{max-width:1000px;margin:0 auto;padding:40px 20px}
-
-
-/* Buttons */
-.btn{display:inline-block;padding:10px 16px;background:var(--accent);color:#021226;border-radius:8px;text-decoration:none;font-weight:700}
-.btn.small{padding:8px 12px;font-size:0.9rem}
-
-
-/* Cards */
-.card{background:rgba(255,255,255,0.05);padding:18px;border-radius:10px;margin:14px 0}
-
-
-/* Projects grid */
-.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px}
-.project-card{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));padding:18px;border-radius:12px}
-
-
-/* GitHub repo grid */
-.repo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.repo-grid div{background:rgba(255,255,255,0.04);padding:14px;border-radius:10px}
-
-
-/* Starfield canvas */
-#starfield{position:fixed;left:0;top:0;width:100%;height:100%;z-index:-1}
-
-
-/* Forms */
-.contact-section input, .contact-section textarea{width:100%;padding:8px;margin:8px 0;border-radius:6px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:#fff}
-
-
-/* Responsive tweaks */
+/* Responsive */
 @media (max-width:640px){
-.navbar nav a{margin-left:10px;font-size:0.95rem}
-.hero{padding:60px 12px}
+  .about-section{flex-direction:column;align-items:flex-start}
+  .profile-img{width:88px;height:88px}
 }
