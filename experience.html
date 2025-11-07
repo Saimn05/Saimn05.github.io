@@ -4,50 +4,39 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Experience — Saimn Zuhairi</title>
-<link rel="stylesheet" href="./style.css?v=1">
+<link rel="stylesheet" href="./style.css?v=2">
 </head>
 <body>
-<canvas id="starfield"></canvas>
+<canvas id="starfield" aria-hidden="true"></canvas>
 <header class="navbar">
-<h1 class="logo">Saimn Zuhairi</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="projects.html">Projects</a>
-<a href="experience.html" class="active">Experience</a>
-<a href="contact.html">Contact</a>
-</nav>
+  <a class="logo" href="index.html" aria-label="Home">
+    <h1>Saimn Zuhairi</h1>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="experience.html" class="active">Experience</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <main class="section">
-<h2>Work Experience</h2>
+  <h2>Experience</h2>
+  <section class="timeline">
+    <article class="timeline-item">
+      <h3>Intern — Aerodynamics Lab</h3>
+      <p class="meta">Summer 2024</p>
+      <p>Worked on wind tunnel tests, data logging, and basic post-processing scripts.</p>
+    </article>
 
-
-<div class="card">
-<h3>Forklift Operator — 3PC</h3>
-<small>Sep 2025 – Present</small>
-<p>Unloading containers, high-reach forklift operation, conveyor handling and adherence to safety procedures.</p>
-</div>
-
-
-<div class="card">
-<h3>Customer Service Manager — Broaster Chicken</h3>
-<small>Mar 2021 – Jul 2025</small>
-<p>Managed stock ordering, supervised staff and improved operational workflows.</p>
-</div>
-
-
-<h2 style="margin-top:36px;">Education & Certifications</h2>
-<ul>
-<li>Diploma of Engineering Studies — Western Sydney University</li>
-<li>Essential Mathematics — University of South Australia (Distinction)</li>
-<li>Forklift Certification; Certificate II Hospitality</li>
-</ul>
-
-
-<a href="resume.pdf" download class="btn">Download Résumé (PDF)</a>
+    <article class="timeline-item">
+      <h3>Student Project — Flight Control</h3>
+      <p class="meta">2023</p>
+      <p>Built a PID-stabilized small UAV simulation and prototype tests.</p>
+    </article>
+  </section>
 </main>
 
-
-<script src="script.js"></script>
+<script src="./script.js" defer></script>
 </body>
 </html>
