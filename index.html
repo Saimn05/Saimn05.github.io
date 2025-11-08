@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="./style.css?v=5">
+  <link rel="stylesheet" href="./style.css?v=6">
 </head>
-<body>
+<body class="page-enter">
   <canvas id="starfield" aria-hidden="true"></canvas>
 
   <header class="navbar">
@@ -23,20 +23,31 @@
 
   <main class="section">
     <section id="about" class="about-section">
-      <!-- Put your LinkedIn photo at images/linkedin.jpg -->
-      <img class="profile-img" src="images/linkedin.jpg" alt="Saimn Zuhairi photo">
+      <img class="profile-img" src="images/linkedin.jpg" alt="Saimn photo">
       <div class="about-text">
         <h2>About Me</h2>
-        <p>Hi — I'm Saimn Zuhairi, an aspiring aerospace engineer with interests in flight dynamics, control systems, and embedded systems. I work on simulation and physical prototyping: numerical simulation (Python), small hardware prototypes (embedded sensors, low-friction mechanisms), and CAD-driven design for lightweight vehicles. I'm actively seeking internships and entry-level roles in aerospace engineering and related fields. <a href="contact.html">Get in touch</a>.</p
+        <p>Hi — I'm Saimn Zuhairi, an aspiring aerospace engineer focusing on flight dynamics, control systems and embedded systems. I work on simulation and physical prototyping (Python, sensors, lightweight mechanisms) and CAD-driven designs. I'm actively seeking internships and entry-level roles — <a href="contact.html">get in touch</a>.</p>
       </div>
     </section>
 
-    <h2>Design Sketches</h2>
-    <section class="sketch-gallery">
-      <figure><img src="images/sketch1.jpg" alt="Design sketch 1"><figcaption>Sketch 1 — initial concept (side/top/bottom views)</figcaption></figure>
-      <figure><img src="images/sketch2.jpg" alt="Design sketch 2"><figcaption>Sketch 2 — cavity for ballast</figcaption></figure>
-      <figure><img src="images/sketch3.jpg" alt="Design sketch 3"><figcaption>Sketch 3 — refined body and cockpit</figcaption></figure>
-      <figure><img src="images/sketch4.jpg" alt="Fuel flow plot"><figcaption>Fuel Flow Plot (fuel vs altitude / wind conditions)</figcaption></figure>
+    <h2>Design Sketches (open a project to view images)</h2>
+    <section class="sketch-thumbs">
+      <a href="projects/gravity-powered-car.html" class="thumb-link">
+        <img src="images/sketch1.jpg" alt="Sketch 1">
+        <span>Gravity car — sketches</span>
+      </a>
+      <a href="projects/gravity-powered-car.html" class="thumb-link">
+        <img src="images/sketch2.jpg" alt="Sketch 2">
+        <span>Ballast cavity — sketches</span>
+      </a>
+      <a href="projects/portfolio-website.html" class="thumb-link">
+        <img src="images/sketch3.jpg" alt="Sketch 3">
+        <span>Refined body / cockpit</span>
+      </a>
+      <a href="projects/flight-path-simulation.html" class="thumb-link">
+        <img src="images/sketch4.jpg" alt="Fuel flow plot">
+        <span>Fuel flow plot</span>
+      </a>
     </section>
 
     <h2>Engineering & Aerospace Projects</h2>
@@ -45,25 +56,34 @@
       <article class="project-card">
         <img src="images/project1.svg" alt="Gravity car">
         <h3><a href="projects/gravity-powered-car.html">Gravity-Powered Car (Recycled Materials)</a></h3>
-        <p>Lightweight proof-of-concept vehicle focused on mass distribution and low rolling resistance — click for build notes, measurements and test results.</p>
+        <p>Lightweight vehicle testbed for mass distribution and rolling-resistance experiments — open for photos, sketches and results.</p>
+        <a class="btn small" href="projects/gravity-powered-car.html">View details</a>
       </article>
 
       <article class="project-card">
         <img src="images/project2.svg" alt="Flight sim">
         <h3><a href="projects/flight-path-simulation.html">Flight Path Simulation (Python)</a></h3>
-        <p>Numerical aircraft model (RK4) with simple PID control experiments and fuel-flow analysis. Click for model assumptions, code & plots.</p>
+        <p>RK4-based numerical model, simple PID experiments and fuel-flow analysis — open for code & plots.</p>
+        <a class="btn small" href="projects/flight-path-simulation.html">View details</a>
       </article>
 
       <article class="project-card">
         <img src="images/project3.svg" alt="Portfolio site">
         <h3><a href="projects/portfolio-website.html">Responsive Portfolio Website</a></h3>
-        <p>This site — built with vanilla HTML, CSS and JS — demonstrates responsive design, accessibility, and GitHub Pages deployment. Click for design assets and implementation notes.</p>
+        <p>This site — static HTML/CSS/JS, lightweight and accessible. Click to see design assets and notes.</p>
+        <a class="btn small" href="projects/portfolio-website.html">View details</a>
       </article>
     </div>
 
     <h2 style="margin-top:48px;">Latest GitHub Repositories</h2>
     <div id="githubRepos" class="repo-grid" aria-live="polite"></div>
   </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lbClose" class="lb-close" aria-label="Close">✕</button>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCaption"></figcaption>
+  </div>
 
   <script src="./script.js" defer></script>
 </body>
