@@ -47,7 +47,7 @@ Validated via page CSS and direct stylesheet.
 ![CSS validation: portfolio page styles (no errors)](images/validation-css-website.png)  
 *Figure 5. CSS validation result (page CSS).*
 
-![CSS validation: direct style.css (no errors)]([images/validation-css-style.png](https://github.com/Saimn05/Saimn05.github.io/blob/main/images/validation-Nu-html.png))  
+![CSS validation: direct style.css (no errors)]([images/validation-Nu-html.png)  
 *Figure 6. style.css direct validation result.*
 
 **Notes**
