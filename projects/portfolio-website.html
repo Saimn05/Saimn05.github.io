@@ -8,10 +8,7 @@
   <style>
     .dual-thumb{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
     .dual-thumb img{width:100%;height:160px;object-fit:cover;border-radius:6px;background:#0d2233}
-    @media (max-width:640px){
-      .dual-thumb{grid-template-columns:1fr}
-      .dual-thumb img{height:130px}
-    }
+    @media (max-width:640px){ .dual-thumb{grid-template-columns:1fr} .dual-thumb img{height:130px} }
   </style>
 </head>
 <body class="page-enter theme-projects">
@@ -33,20 +30,23 @@
     <section class="project-media">
       <figure>
         <img src="../images/sketch3.jpg" alt="Portfolio design sketch"
-             width="1200" height="800" loading="lazy" decoding="async">
+             width="1200" height="800" loading="lazy" decoding="async"
+             data-caption="Design sketch outlining layout sections and navigation.">
         <figcaption>Design sketch outlining layout sections and navigation.</figcaption>
       </figure>
 
-      <!-- Combined site mock + code image with a robust fallback -->
+      <!-- Each image has its own caption via data-caption so the lightbox shows the right one -->
       <figure>
         <div class="dual-thumb">
           <img src="../images/project3.svg" alt="Vector layout mock"
-               width="800" height="480" loading="lazy" decoding="async">
+               width="800" height="480" loading="lazy" decoding="async"
+               data-caption="Vector layout mock (panels and grid).">
           <img src="../images/portfolio-code.png" alt="Code screenshot of the portfolio site"
                width="1500" height="900" loading="lazy" decoding="async"
-               onerror="this.onerror=null; this.src='../images/repo-dashboard.png';">
+               data-caption="Code snapshot (HTML/CSS/JS) for this site."
+               onerror="this.onerror=null; this.src='../images/repo-dashboard.png'; this.alt='Repository dashboard showing deployments & language stats'; this.dataset.caption='Repository dashboard (deployments & language split).';">
         </div>
-        <figcaption>Site mock (left) and code snapshot (right). If the code image is missing, a repository dashboard image is shown instead.</figcaption>
+        <figcaption>Site mock (left) and code snapshot (right). Click either to view full size.</figcaption>
       </figure>
     </section>
 
@@ -56,22 +56,22 @@
         <li>Static architecture: HTML/CSS/JS on GitHub Pages — no frameworks to keep TTFB low.</li>
         <li>Performance:
           <ul>
-            <li>Lazy images + width/height to avoid layout shifts (CLS) and reduce initial network cost.</li>
-            <li>One deferred JS file; starfield capped, debounced on resize, and paused when the tab is hidden.</li>
-            <li>Page transitions via CSS classes (no libraries), typical overhead under 2 ms.</li>
+            <li>Lazy images + explicit dimensions to prevent CLS; one deferred JS file.</li>
+            <li>Starfield capped, debounced on resize, and paused when the tab is hidden.</li>
+            <li>Page transitions via CSS classes (no libraries), overhead under 2 ms.</li>
           </ul>
         </li>
         <li>Accessibility:
           <ul>
-            <li>Semantic landmarks, descriptive links, alt text for all imagery.</li>
+            <li>Semantic landmarks, descriptive links, alt text on all media.</li>
             <li>Theme palettes tuned for contrast (target WCAG AA).</li>
-            <li>Lightbox ESC-to-close; click-away to dismiss; no focus traps.</li>
+            <li>Lightbox is ESC/click-away dismissable; no focus traps.</li>
           </ul>
         </li>
         <li>Data & build:
           <ul>
             <li>Repo snapshot documents recent deployments and language split.</li>
-            <li>Future: inline critical CSS and small SW for offline viewing; Lighthouse check for FCP/LCP/CLS.</li>
+            <li>Future: inline critical CSS and a tiny SW for offline; Lighthouse checks for FCP/LCP/CLS.</li>
           </ul>
         </li>
         <li>Structure: lowercase filenames; assets in <code>images/</code>; themes via body classes.</li>
