@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio Website — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=13">
+  <link rel="stylesheet" href="../style.css?v=14">
 </head>
 <body class="page-enter theme-projects">
   <canvas id="starfield" aria-hidden="true"></canvas>
@@ -29,10 +29,8 @@
              data-caption="Design sketch outlining layout sections and navigation.">
         <figcaption>Design sketch outlining layout sections and navigation.</figcaption>
       </figure>
-
-      <!-- Only the code image remains as the main media -->
       <figure>
-        <img src="../images/portfolio-code.png?v=1" alt="Code screenshot of the portfolio site"
+        <img src="../images/portfolio-code.png?v=2" alt="Code screenshot of the portfolio site"
              width="1500" height="900" loading="lazy" decoding="async"
              data-caption="Code snapshot (HTML/CSS/JS) for this site."
              onerror="this.onerror=null; this.src='../images/repo-dashboard.png'; this.alt='Repository dashboard showing deployments & language stats'; this.dataset.caption='Repository dashboard (deployments & language split).';">
@@ -46,25 +44,25 @@
         <li>Static architecture: HTML/CSS/JS on GitHub Pages — low latency, no frameworks.</li>
         <li>Performance:
           <ul>
-            <li>Lazy images + explicit dimensions to prevent CLS and reduce initial payload.</li>
-            <li>Single deferred JS; starfield capped, debounced resize, paused when hidden.</li>
-            <li>CSS class-based transitions replace heavier libraries (under 2 ms overhead).</li>
+            <li>Lazy images + explicit dimensions prevent CLS.</li>
+            <li>Single deferred JS; starfield capped, debounced, paused when hidden.</li>
+            <li>CSS transitions (no heavy libraries) keep overhead under 2 ms.</li>
           </ul>
         </li>
         <li>Accessibility:
           <ul>
-            <li>Semantic landmarks, descriptive link text, comprehensive alt attributes.</li>
-            <li>Themed palettes tuned for contrast (target WCAG AA).</li>
-            <li>Lightbox dismissable via ESC and click-away; no focus traps.</li>
+            <li>Semantic landmarks & descriptive link text.</li>
+            <li>Alt attributes for all imagery.</li>
+            <li>ESC & click-away lightbox dismissal.</li>
           </ul>
         </li>
         <li>Data & build:
           <ul>
-            <li>Repository snapshot documents deployments & language split.</li>
-            <li>Planned: inline critical CSS, small service worker, Lighthouse metric logging.</li>
+            <li>Repo snapshot documents deployments & language split.</li>
+            <li>Planned: inline critical CSS + small service worker + Lighthouse logging.</li>
           </ul>
         </li>
-        <li>Structure: lowercase filenames; assets in <code>images/</code>; themes via body classes.</li>
+        <li>Structure: lowercase filenames; body class themes.</li>
       </ul>
     </section>
 
