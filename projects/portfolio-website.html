@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio Website — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=11">
+  <link rel="stylesheet" href="../style.css?v=12">
   <style>
     .dual-thumb{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
     .dual-thumb img{width:100%;height:160px;object-fit:cover;border-radius:6px;background:#0d2233}
@@ -35,43 +35,37 @@
         <figcaption>Design sketch outlining layout sections and navigation.</figcaption>
       </figure>
 
-      <!-- Each image has its own caption via data-caption so the lightbox shows the right one -->
       <figure>
-        <div class="dual-thumb">
-          <img src="../images/project3.svg" alt="Vector layout mock"
-               width="800" height="480" loading="lazy" decoding="async"
-               data-caption="Vector layout mock (panels and grid).">
-          <img src="../images/portfolio-code.png" alt="Code screenshot of the portfolio site"
-               width="1500" height="900" loading="lazy" decoding="async"
-               data-caption="Code snapshot (HTML/CSS/JS) for this site."
-               onerror="this.onerror=null; this.src='../images/repo-dashboard.png'; this.alt='Repository dashboard showing deployments & language stats'; this.dataset.caption='Repository dashboard (deployments & language split).';">
-        </div>
-        <figcaption>Site mock (left) and code snapshot (right). Click either to view full size.</figcaption>
+        <img src="../images/portfolio-code.png" alt="Code screenshot of the portfolio site"
+             width="1500" height="900" loading="lazy" decoding="async"
+             data-caption="Code snapshot (HTML/CSS/JS) for this site."
+             onerror="this.onerror=null; this.src='../images/repo-dashboard.png'; this.alt='Repository dashboard showing deployments & language stats'; this.dataset.caption='Repository dashboard (deployments & language split).';">
+        <figcaption>Code snapshot of the live site (fallback shows repository dashboard).</figcaption>
       </figure>
     </section>
 
     <section class="project-explanation">
       <h3>Implementation notes</h3>
       <ul>
-        <li>Static architecture: HTML/CSS/JS on GitHub Pages — no frameworks to keep TTFB low.</li>
+        <li>Static architecture: HTML/CSS/JS on GitHub Pages — low latency, no frameworks.</li>
         <li>Performance:
           <ul>
-            <li>Lazy images + explicit dimensions to prevent CLS; one deferred JS file.</li>
-            <li>Starfield capped, debounced on resize, and paused when the tab is hidden.</li>
-            <li>Page transitions via CSS classes (no libraries), overhead under 2 ms.</li>
+            <li>Lazy images + explicit dimensions to prevent CLS and reduce initial payload.</li>
+            <li>Single deferred JS; starfield capped, debounced resize, paused when hidden.</li>
+            <li>CSS class-based transitions replace heavier libraries (under 2 ms overhead).</li>
           </ul>
         </li>
         <li>Accessibility:
           <ul>
-            <li>Semantic landmarks, descriptive links, alt text on all media.</li>
-            <li>Theme palettes tuned for contrast (target WCAG AA).</li>
-            <li>Lightbox is ESC/click-away dismissable; no focus traps.</li>
+            <li>Semantic landmarks, descriptive link text, comprehensive alt attributes.</li>
+            <li>Themed palettes tuned for contrast (target WCAG AA).</li>
+            <li>Lightbox dismissable via ESC and click-away; no focus traps.</li>
           </ul>
         </li>
         <li>Data & build:
           <ul>
-            <li>Repo snapshot documents recent deployments and language split.</li>
-            <li>Future: inline critical CSS and a tiny SW for offline; Lighthouse checks for FCP/LCP/CLS.</li>
+            <li>Repository snapshot documents deployments & language split.</li>
+            <li>Planned: inline critical CSS, small service worker, Lighthouse metric logging.</li>
           </ul>
         </li>
         <li>Structure: lowercase filenames; assets in <code>images/</code>; themes via body classes.</li>
