@@ -21,6 +21,9 @@ canvas#starfield{position:fixed;inset:0;z-index:0;opacity:0.35;pointer-events:no
 .about-section{display:flex;gap:20px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px}
 .profile-img{width:110px;height:110px;border-radius:8px;background:#091426;flex:0 0 110px}
 .about-text h2{margin:0 0 8px 0}
+.sketch-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+.sketch-gallery figure{background:var(--card);padding:10px;border-radius:10px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.sketch-gallery img{width:100%;height:auto;border-radius:6px}
 .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px}
 .project-card{background:var(--card);padding:16px;border-radius:10px;display:flex;flex-direction:column;gap:10px;align-items:start}
 .project-card img{width:100%;height:120px;object-fit:cover;border-radius:6px;background:#071420}
