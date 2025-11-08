@@ -21,4 +21,4 @@ Deployment
 - Lowercase filenames and consistent relative paths prevent case‑sensitive 404s.
 
 Notes
-- Included screenshots/snippets of validator/Lighthouse results here for submission.
+- Included screenshots/snippets of validator.
