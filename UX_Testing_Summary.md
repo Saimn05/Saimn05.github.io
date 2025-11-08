@@ -10,7 +10,6 @@ Tool: [W3C Nu HTML Checker](https://validator.w3.org/nu/) (Check by address)
 | Flight Path Simulation | https://saimn05.github.io/projects/flight-path-simulation.html | 0 | 0 | Pass |
 
 **Evidence (screenshots)**  
-(Replace these placeholder image files with your actual screenshots.)
 
 ![HTML validation: index (no errors)](images/validation-html-index.png)  
 *Figure 1. index.html validation result.*
@@ -40,15 +39,12 @@ Validated via page CSS and direct stylesheet.
 | Target | URL Validated | Errors | Warnings | Status |
 |--------|---------------|--------|----------|--------|
 | Portfolio page CSS | https://saimn05.github.io/projects/portfolio-website.html | 0 | 0 | Pass |
-| Direct stylesheet | (Raw) https://raw.githubusercontent.com/Saimn05/Saimn05.github.io/main/style.css | 0 | 0 | Pass |
 
 **Evidence**
 
 ![CSS validation: portfolio page styles (no errors)](images/validation-css-website.png)  
 *Figure 5. CSS validation result (page CSS).*
 
-![CSS validation: direct style.css (no errors)]([images/validation-Nu-html.png)  
-*Figure 6. style.css direct validation result.*
 
 **Notes**
 - Custom properties (`--bg`, etc.) and grid/flex syntax accepted.
