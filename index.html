@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="./style.css?v=3">
+  <link rel="stylesheet" href="./style.css?v=5">
 </head>
 <body>
   <canvas id="starfield" aria-hidden="true"></canvas>
@@ -23,10 +23,12 @@
 
   <main class="section">
     <section id="about" class="about-section">
-      <img class="profile-img" src="images/profile.svg" alt="Profile picture">
+      <!-- Put your LinkedIn photo at images/linkedin.jpg -->
+      <img class="profile-img" src="images/linkedin.jpg" alt="Saimn Zuhairi photo">
       <div class="about-text">
         <h2>About Me</h2>
-        <p>Hi — I'm Saimn Zuhairi, an aspiring aerospace engineer interested in flight dynamics, control systems, and embedded systems. I build simulations in Python, small hardware prototypes, and this responsive portfolio site. I'm open to internships and entry-level roles — feel free to <a href="contact.html">reach out</a>.</p>
+        <p>Hi — I'm Saimn Zuhairi, an aspiring aerospace engineer with interests in flight dynamics, control systems, and embedded systems. I work on simulation and physical prototyping: numerical simulation (Python), small hardware prototypes (embedded sensors, low-friction mechanisms), and CAD-driven design for lightweight vehicles. I'm actively seeking internships and entry-level roles in aerospace engineering and related fields. <a href="contact.html">Get in touch</a>.</p>
+        <p class="muted">Tip: upload your LinkedIn profile photo to <code>images/linkedin.jpg</code> in this repo to display it here.</p>
       </div>
     </section>
 
@@ -43,23 +45,20 @@
     <div class="project-grid">
       <article class="project-card">
         <img src="images/project1.svg" alt="Gravity car">
-        <h3>Gravity-Powered Car (Recycled Materials)</h3>
-        <p>Prototype built from plastic bottles, chopsticks and bottle caps. Focus on low friction rolling, axle alignment and mass distribution.</p>
-        <a href="#" class="btn small">View details</a>
+        <h3><a href="projects/gravity-powered-car.html">Gravity-Powered Car (Recycled Materials)</a></h3>
+        <p>Lightweight proof-of-concept vehicle focused on mass distribution and low rolling resistance — click for build notes, measurements and test results.</p>
       </article>
 
       <article class="project-card">
         <img src="images/project2.svg" alt="Flight sim">
-        <h3>Flight Path Simulation (Python)</h3>
-        <p>Simulation of simplified flight dynamics using numerical integration in Python; includes basic PID control experiments and plotting.</p>
-        <a href="#" class="btn small">View code</a>
+        <h3><a href="projects/flight-path-simulation.html">Flight Path Simulation (Python)</a></h3>
+        <p>Numerical aircraft model (RK4) with simple PID control experiments and fuel-flow analysis. Click for model assumptions, code & plots.</p>
       </article>
 
       <article class="project-card">
         <img src="images/project3.svg" alt="Portfolio site">
-        <h3>Responsive Portfolio Website</h3>
-        <p>This site — built with HTML, CSS and vanilla JS — demonstrates responsive design, accessibility, and deployment on GitHub Pages.</p>
-        <a href="#" class="btn small">Source</a>
+        <h3><a href="projects/portfolio-website.html">Responsive Portfolio Website</a></h3>
+        <p>This site — built with vanilla HTML, CSS and JS — demonstrates responsive design, accessibility, and GitHub Pages deployment. Click for design assets and implementation notes.</p>
       </article>
     </div>
 
