@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gravity-Powered Car — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=8">
+  <link rel="stylesheet" href="../style.css?v=9">
 </head>
 <body class="page-enter theme-projects">
   <canvas id="starfield" aria-hidden="true"></canvas>
-
   <header class="navbar">
     <a class="logo" href="../index.html" aria-label="Home"><h1>Saimn Zuhairi</h1></a>
     <nav>
@@ -24,35 +23,47 @@
 
     <section class="project-media">
       <figure>
-        <img src="../images/sketch1.jpg" alt="Sketch 1 concept views"
+        <img src="../images/gravity-prototype.jpg" alt="Wooden gravity car prototype"
+             width="768" height="768" loading="lazy" decoding="async">
+        <figcaption>Physical prototype used for friction tests.</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/sketch1.jpg" alt="Concept sketch views"
              width="1200" height="800" loading="lazy" decoding="async">
         <figcaption>Sketch 1 — concept views</figcaption>
       </figure>
       <figure>
-        <img src="../images/sketch2.jpg" alt="Sketch 2 ballast cavity"
+        <img src="../images/sketch2.jpg" alt="Ballast cavity sketch"
              width="1200" height="800" loading="lazy" decoding="async">
         <figcaption>Sketch 2 — ballast cavity</figcaption>
-      </figure>
-      <figure>
-        <img src="../images/project1.svg" alt="Prototype icon"
-             width="800" height="480" loading="lazy" decoding="async">
-        <figcaption>Prototype thumbnail</figcaption>
       </figure>
     </section>
 
     <section class="project-explanation">
       <h3>Overview</h3>
-      <p>Objective: build an ultra-low-cost gravity car to study how mass distribution and axle alignment affect run distance and speed down an inclined track.</p>
+      <p>Testbed for evaluating how mass placement and axle alignment impact downhill performance.</p>
       <h3>Materials & fabrication</h3>
       <ul>
-        <li>Body: carved styrofoam or recycled plastic sheet; shaped to reduce frontal area.</li>
-        <li>Wheels: plastic food-container lids; axles made from metal rods with bushings (or ball bearings if available).</li>
-        <li>Ballast: metal block placed in the internal cavity to tune center of mass (sketch 2).</li>
+        <li>Body: recycled wood / foam variants in concept stage.</li>
+        <li>Wheels: simple discs; future upgrade to low-friction bearings.</li>
+        <li>Ballast: adjustable metal mass inside cavity.</li>
       </ul>
       <h3>Measurements & results</h3>
-      <p>Small shifts in ballast (5–10 mm) affected distance by up to ~6%. Axle misalignment &gt;1° caused wobble and added rolling resistance.</p>
+      <p>Ballast shifts of only millimeters produced measurable differences in run distance. Alignment errors increased drag via lateral oscillation.</p>
     </section>
 
+    <a class="btn" href="../projects.html">Back to projects</a>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lbClose" class="lb-close" aria-label="Close">✕</button>
+    <img id="lbImg" src="" alt="" width="1200" height="800">
+    <figcaption id="lbCaption"></figcaption>
+  </div>
+
+  <script src="../script.js" defer></script>
+</body>
+</html>
     <a class="btn" href="../projects.html">Back to projects</a>
   </main>
 
