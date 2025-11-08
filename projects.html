@@ -4,7 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="./style.css?v=13">
+  <link rel="stylesheet" href="./style.css?v=14">
+  <style>
+    .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+    a.project-card{display:flex;flex-direction:column;gap:10px;background:var(--card);padding:16px;border-radius:10px;
+      text-decoration:none;color:var(--text);min-height:260px;transition:background .2s}
+    a.project-card:hover{background:rgba(255,255,255,0.06)}
+    a.project-card img{width:100%;height:160px;object-fit:cover;border-radius:6px;background:#071420}
+    a.project-card h3{margin:0;font-size:1.05rem;color:var(--accent)}
+    a.project-card p{margin:0;font-size:.85rem;line-height:1.3}
+  </style>
 </head>
 <body class="page-enter theme-projects">
   <canvas id="starfield" aria-hidden="true"></canvas>
@@ -24,44 +33,26 @@
     <p>Browse the projects and open a detail page for sketches, images and technical notes.</p>
 
     <div class="project-grid">
-      <article class="project-card">
-        <a class="card-img" href="projects/gravity-powered-car.html">
-          <img
-            src="images/gravity-prototype.jpg"
-            alt="Gravity car wooden prototype"
-            width="768" height="768"
-            loading="lazy" decoding="async"
-            onerror="this.onerror=null; this.src='images/sketch1.jpg';">
-        </a>
-        <h3><a href="projects/gravity-powered-car.html">Gravity-Powered Car (Recycled Materials)</a></h3>
+      <a class="project-card" href="projects/gravity-powered-car.html" data-project="gravity">
+        <img src="images/gravity-prototype.jpg" alt="Gravity car wooden prototype" width="768" height="768"
+             loading="lazy" decoding="async" onerror="this.onerror=null; this.src='images/sketch1.jpg';">
+        <h3>Gravity-Powered Car (Recycled Materials)</h3>
         <p>Physical prototype + conceptual sketches exploring friction and mass distribution.</p>
-      </article>
+      </a>
 
-      <article class="project-card">
-        <a class="card-img" href="projects/flight-path-simulation.html">
-          <img
-            src="images/aircraft.jpg"
-            alt="Aircraft used to depict flight path dynamics"
-            width="317" height="159"
-            loading="lazy" decoding="async"
-            onerror="this.onerror=null; this.src='images/fuelplot.png';">
-        </a>
-        <h3><a href="projects/flight-path-simulation.html">Flight Path Simulation (Python)</a></h3>
+      <a class="project-card" href="projects/flight-path-simulation.html" data-project="flight">
+        <img src="images/aircraft.jpg" alt="Aircraft representing simulation" width="317" height="159"
+             loading="lazy" decoding="async" onerror="this.onerror=null; this.src='images/fuelplot.png';">
+        <h3>Flight Path Simulation (Python)</h3>
         <p>Numerical integration model: wind sensitivity, fuel-flow plots and PID control trials.</p>
-      </article>
+      </a>
 
-      <article class="project-card">
-        <a class="card-img" href="projects/portfolio-website.html">
-          <img
-            src="images/portfolio-code.png?v=1"
-            alt="Portfolio website code screenshot"
-            width="1500" height="900"
-            loading="lazy" decoding="async"
-            onerror="this.onerror=null; this.src='images/repo-dashboard.png';">
-        </a>
-        <h3><a href="projects/portfolio-website.html">Responsive Portfolio Website</a></h3>
+      <a class="project-card" href="projects/portfolio-website.html" data-project="portfolio">
+        <img src="images/portfolio-code.png?v=2" alt="Portfolio website code screenshot" width="1500" height="900"
+             loading="lazy" decoding="async" onerror="this.onerror=null; this.src='images/repo-dashboard.png';">
+        <h3>Responsive Portfolio Website</h3>
         <p>Static accessible design with performance-focused JS for subtle animations.</p>
-      </article>
+      </a>
     </div>
   </main>
 
