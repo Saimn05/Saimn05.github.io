@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio Website — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=3">
+  <link rel="stylesheet" href="../style.css?v=5">
 </head>
 <body>
   <canvas id="starfield" aria-hidden="true"></canvas>
@@ -28,14 +28,15 @@
     </section>
 
     <section class="project-explanation">
-      <h3>Notes</h3>
-      <p>This site is built with vanilla HTML/CSS/JS and hosted on GitHub Pages. It includes a starfield canvas and an auto-fetcher for GitHub repos. Images are referenced in a case-sensitive way — ensure filenames in the repository match references exactly (lowercase recommended).</p>
-      <h4>Fixes applied</h4>
+      <h3>Implementation notes</h3>
       <ul>
-        <li>Normalized file names to lowercase (style.css, script.js, projects.html, contact.html, experience.html).</li>
-        <li>Added project pages and image gallery to avoid 404s.</li>
-        <li>Hardened script.js against missing DOM elements and API failures.</li>
+        <li>Vanilla HTML/CSS/JS to keep the site light and dependency-free.</li>
+        <li>Starfield canvas runs after DOM ready and is guarded against missing elements for safety.</li>
+        <li>GitHub repo fetch is performed gracefully — if rate-limited the page degrades and shows a message.</li>
       </ul>
+
+      <h3>Files & structure</h3>
+      <p>All pages are static HTML; images live in <code>images/</code>. Keep filenames lowercase to avoid GitHub Pages case-sensitivity issues.</p>
     </section>
 
     <a class="btn" href="../projects.html">Back to projects</a>
