@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio Website — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=5">
+  <link rel="stylesheet" href="../style.css?v=6">
 </head>
-<body>
+<body class="page-enter">
   <canvas id="starfield" aria-hidden="true"></canvas>
 
   <header class="navbar">
@@ -23,24 +23,28 @@
     <h2>Responsive Portfolio Website</h2>
 
     <section class="project-media">
-      <figure><img src="../images/sketch3.jpg" alt="Design sketch 3"><figcaption>Sketch 3 — refined body and cockpit</figcaption></figure>
-      <figure><img src="../images/project3.svg" alt="Website layout mock"><figcaption>Site mock / thumbnails</figcaption></figure>
+      <figure><img src="../images/sketch3.jpg" alt="Sketch 3"><figcaption>Sketch 3 — refined body and cockpit</figcaption></figure>
+      <figure><img src="../images/project3.svg" alt="Site mock"><figcaption>Site mock / thumbnails</figcaption></figure>
     </section>
 
     <section class="project-explanation">
       <h3>Implementation notes</h3>
       <ul>
         <li>Vanilla HTML/CSS/JS to keep the site light and dependency-free.</li>
-        <li>Starfield canvas runs after DOM ready and is guarded against missing elements for safety.</li>
-        <li>GitHub repo fetch is performed gracefully — if rate-limited the page degrades and shows a message.</li>
+        <li>Starfield canvas runs after DOM ready and is guarded against missing elements.</li>
       </ul>
-
       <h3>Files & structure</h3>
       <p>All pages are static HTML; images live in <code>images/</code>. Keep filenames lowercase to avoid GitHub Pages case-sensitivity issues.</p>
     </section>
 
     <a class="btn" href="../projects.html">Back to projects</a>
   </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lbClose" class="lb-close" aria-label="Close">✕</button>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCaption"></figcaption>
+  </div>
 
   <script src="../script.js" defer></script>
 </body>
