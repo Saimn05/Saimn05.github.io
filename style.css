@@ -1,59 +1,82 @@
-/* Basic responsive layout and styles */
+/* Theming: default variables are overridden by per-page theme classes */
+/* Default (home-like deep space) */
 :root{
+  --bg:#061021;           /* deep space navy */
+  --card:#0f2030;         /* darker panel */
+  --muted:#9fb0c3;        /* muted steel */
+  --accent:#7bd389;       /* aerospace green */
+  --text:#e7f1f7;         /* soft white */
+}
+
+/* Aerospace-themed palettes per page */
+body.theme-home{
   --bg:#061021;
   --card:#0f2030;
   --muted:#9fb0c3;
-  --accent:#7bd389;
+  --accent:#7bd389;       /* guidance green */
   --text:#e7f1f7;
+}
+body.theme-projects{
+  --bg:#071a3d;           /* NASA blue base */
+  --card:#0e274d;         /* deep blue panel */
+  --muted:#a8c4e6;        /* sky steel */
+  --accent:#4dd2ff;       /* orbital cyan */
+  --text:#e6f2ff;
+}
+body.theme-experience{
+  --bg:#0c141f;           /* cockpit grey-blue */
+  --card:#142233;         /* flight deck panel */
+  --muted:#a6b7c7;
+  --accent:#f3b24a;       /* warning amber */
+  --text:#eef4fa;
+}
+body.theme-contact{
+  --bg:#061826;           /* night sky */
+  --card:#0e2d3f;         /* fuselage blue */
+  --muted:#9fd3df;        /* avionics teal */
+  --accent:#00e28a;       /* radar green */
+  --text:#e8fbf5;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
 
-canvas#starfield{position:fixed;inset:0;z-index:0;opacity:0.35;pointer-events:none}
+canvas#starfield{position:fixed;inset:0;z-index:0;opacity:0.28;pointer-events:none}
 
 .navbar{position:sticky;top:0;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:12px;z-index:20}
 .navbar .logo h1{margin:0;font-size:1.1rem;color:var(--accent)}
 .navbar nav a{color:var(--text);text-decoration:none;margin-left:14px;opacity:0.9}
 .navbar nav a.active{color:var(--accent)}
 
-/* Section enter/exit animations (robust selectors)
-   - .page-enter is present on initial load in HTML to keep content hidden until JS flips it.
-   - .page-enter-active is toggled by JS to trigger the final fade-in.
-   - .page-exit is added by JS when navigating away to run exit animation.
-*/
+/* Page transitions */
 .page-enter .section{ opacity:0; transform:translateY(8px); transition: transform .35s ease, opacity .35s ease; }
 .page-enter-active .section{ opacity:1; transform:none; }
 .page-exit .section{ opacity:0; transform:translateY(-8px); transition: transform .28s ease, opacity .28s ease; }
 
 .section{position:relative;z-index:5;max-width:980px;margin:48px auto;padding:0 20px}
 
-/* thumbnail grid on homepage */
+/* homepage thumbnails */
 .sketch-thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
 .thumb-link{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--text);align-items:center;background:var(--card);padding:8px;border-radius:8px}
 .thumb-link img{width:100%;height:120px;object-fit:cover;border-radius:6px;display:block}
 .thumb-link span{font-size:0.9rem;color:var(--muted)}
 
-/* gallery and card styles */
-.about-section{display:flex;gap:20px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px}
+/* cards and galleries */
+.about-section{display:flex;gap:20px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));padding:18px;border-radius:10px}
 .profile-img{width:110px;height:110px;border-radius:50%;background:#091426;flex:0 0 110px;object-fit:cover}
 .about-text h2{margin:0 0 8px 0}
-.sketch-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
-.sketch-gallery figure{background:var(--card);padding:10px;border-radius:10px;display:flex;flex-direction:column;gap:8px;align-items:center}
-.sketch-gallery img{width:100%;height:auto;border-radius:6px}
 
 .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
 .project-card{background:var(--card);padding:16px;border-radius:10px;display:flex;flex-direction:column;gap:10px;align-items:start;min-height:260px}
-.project-card img{width:100%;height:120px;object-fit:cover;border-radius:6px;background:#071420}
-.btn{background:var(--accent);color:#012;display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+.project-card img{width:100%;height:160px;object-fit:cover;border-radius:6px;background:#071420;display:block}
+.btn{background:var(--accent);color:#02121d;display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
 .btn.small{padding:6px 8px;font-size:0.9rem}
-.contact-section input, .contact-section textarea{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+
+/* repo grid */
 .repo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
 .repo-grid div{background:var(--card);padding:12px;border-radius:8px}
-.timeline{display:flex;flex-direction:column;gap:12px}
-.meta{color:var(--muted);font-size:0.9rem;margin-top:4px}
 
-/* project gallery on detail pages */
+/* project detail page gallery */
 .project-media{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-bottom:12px}
 .project-media figure{background:var(--card);padding:10px;border-radius:8px}
 .project-media img{width:100%;height:160px;object-fit:cover;border-radius:6px;cursor:pointer}
