@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio Website — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=6">
+  <link rel="stylesheet" href="../style.css?v=7">
 </head>
 <body class="page-enter">
   <canvas id="starfield" aria-hidden="true"></canvas>
@@ -23,18 +23,26 @@
     <h2>Responsive Portfolio Website</h2>
 
     <section class="project-media">
-      <figure><img src="../images/sketch3.jpg" alt="Sketch 3"><figcaption>Sketch 3 — refined body and cockpit</figcaption></figure>
-      <figure><img src="../images/project3.svg" alt="Site mock"><figcaption>Site mock / thumbnails</figcaption></figure>
+      <figure>
+        <img src="../images/sketch3.jpg" alt="Design sketch 3"
+             width="1200" height="800" loading="lazy" decoding="async">
+        <figcaption>Sketch 3 — refined body and cockpit</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/project3.svg" alt="Site mock"
+             width="800" height="480" loading="lazy" decoding="async">
+        <figcaption>Site mock / thumbnails</figcaption>
+      </figure>
     </section>
 
     <section class="project-explanation">
       <h3>Implementation notes</h3>
       <ul>
-        <li>Vanilla HTML/CSS/JS to keep the site light and dependency-free.</li>
-        <li>Starfield canvas runs after DOM ready and is guarded against missing elements.</li>
+        <li>Vanilla HTML/CSS/JS for low dependency footprint.</li>
+        <li>Starfield canvas deferred until DOM ready and paused on tab hide.</li>
       </ul>
       <h3>Files & structure</h3>
-      <p>All pages are static HTML; images live in <code>images/</code>. Keep filenames lowercase to avoid GitHub Pages case-sensitivity issues.</p>
+      <p>Static HTML pages; assets in <code>images/</code>. Lowercase filenames to avoid case-sensitivity issues.</p>
     </section>
 
     <a class="btn" href="../projects.html">Back to projects</a>
@@ -42,7 +50,7 @@
 
   <div id="lightbox" class="lightbox" aria-hidden="true">
     <button id="lbClose" class="lb-close" aria-label="Close">✕</button>
-    <img id="lbImg" src="" alt="">
+    <img id="lbImg" src="" alt="" width="1200" height="800">
     <figcaption id="lbCaption"></figcaption>
   </div>
 
