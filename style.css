@@ -20,7 +20,10 @@ canvas#starfield{position:fixed;inset:0;z-index:0;opacity:0.35;pointer-events:no
 .section{position:relative;z-index:5;max-width:980px;margin:48px auto;padding:0 20px;transition:transform .35s ease,opacity .35s ease}
 .page-enter .section{opacity:0;transform:translateY(8px)}
 .page-enter.page-enter-active .section{opacity:1;transform:none}
+.page-enter .section{ opacity:0; transform:translateY(8px); transition: transform .35s ease, opacity .35s ease; }
+.page-enter-active .section{ opacity:1; transform:none; }
 .page-exit .section{opacity:0;transform:translateY(-8px)}
+.page-exit .section{ opacity:0; transform:translateY(-8px); transition: transform .28s ease, opacity .28s ease; }
 
 /* thumbnail grid on homepage */
 .sketch-thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
