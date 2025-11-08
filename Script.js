@@ -1,38 +1,64 @@
-// script.js — defensive with page transitions + lightbox + starfield
+// script.js — defensive with page transitions + lightbox + starfield (performance tuned)
 
 let canvas, ctx, width, height, stars = [];
+const MAX_STARS = 120;
+const STAR_DENSITY = 10000; // larger -> fewer stars
+const TRANSITION_DURATION = 320; // ms
 
 function log(...args){ if(window && window.console) console.log('[site]', ...args); }
 
-// --- starfield (same as before) ---
+// --- starfield (performance improvements) ---
 function resizeCanvas(){
   if(!canvas) return;
   width = window.innerWidth; height = window.innerHeight;
+  // account for devicePixelRatio if needed (kept simple here)
   canvas.width = width; canvas.height = height;
 }
+
 function initStars(){
   if(!ctx) return;
   stars = [];
-  const count = Math.max(30, Math.floor((width * height) / 5000));
+  const count = Math.min(MAX_STARS, Math.max(30, Math.floor((width * height) / STAR_DENSITY)));
   for(let i=0;i<count;i++){
     stars.push({ x: Math.random()*width, y: Math.random()*height, z: Math.random()*1.6+0.2 });
   }
+  log('initStars:', stars.length);
 }
+
+let rafId = null;
 function drawStars(){
   if(!ctx) return;
   ctx.clearRect(0,0,width,height);
   ctx.fillStyle = '#ffffff';
-  stars.forEach(s =>{
+  for (let i=0;i<stars.length;i++){
+    const s = stars[i];
     ctx.fillRect(Math.round(s.x), Math.round(s.y), Math.max(1, s.z), Math.max(1, s.z));
     s.y += s.z*0.6;
     if(s.y>height) s.y = 0;
-  });
-  requestAnimationFrame(drawStars);
+  }
+  rafId = requestAnimationFrame(drawStars);
 }
 
-// --- page transition helpers ---
-const TRANSITION_DURATION = 320; //ms
+// Pause/resume rendering when page hidden (saves CPU)
+function handleVisibilityChange(){
+  if(document.hidden){
+    if(rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  } else {
+    if(!rafId) drawStars();
+  }
+}
 
+// Debounced resize (avoid rapid re-init)
+let resizeTimer = null;
+function onResizeDebounced(){
+  if(resizeTimer) clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(()=>{
+    resizeCanvas();
+    initStars();
+  }, 140);
+}
+
+// --- page transition helpers (fixed) ---
 function isLocalLink(a){
   try{
     const url = new URL(a.href, location.href);
@@ -45,40 +71,41 @@ function setupPageTransitions(){
   document.addEventListener('click', (ev)=>{
     const a = ev.target.closest('a');
     if(!a) return;
-    // don't intercept links that open new tab or are anchors or mailto/tel
-    if(a.target === '_blank' || a.hasAttribute('download') || a.href.startsWith('mailto:') || a.getAttribute('href')?.startsWith('#')) return;
+    // ignore external/new-tab/download/mailto/hash
+    const href = a.getAttribute('href') || '';
+    if(a.target === '_blank' || a.hasAttribute('download') || href.startsWith('mailto:') || href.startsWith('#')) return;
     if(!isLocalLink(a)) return;
-    // prevent default and animate
     ev.preventDefault();
-    const href = a.getAttribute('href');
+    // run exit animation
     document.body.classList.add('page-exit');
-    // small delay to let CSS animate
+    // short delay to let CSS animate
     setTimeout(()=>{ window.location.href = href; }, TRANSITION_DURATION);
-  }, {capture:true});
-  // on load, trigger enter animation
+  }, {capture:true, passive:false});
+
+  // enter animation: ensure active class applied and then remove the initial "page-enter" after transition
   requestAnimationFrame(()=>{
-    document.body.classList.remove('page-enter');
+    // add active class (CSS will animate from hidden -> visible)
     document.body.classList.add('page-enter-active');
-    setTimeout(()=>{ document.body.classList.remove('page-enter-active'); }, TRANSITION_DURATION+50);
+    // keep the initial page-enter class while animation plays, then remove it
+    setTimeout(()=>{ document.body.classList.remove('page-enter'); document.body.classList.remove('page-enter-active'); }, TRANSITION_DURATION + 50);
   });
 }
 
-// --- lightbox for images ---
+// --- lightbox (unchanged) ---
 function setupLightbox(){
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
   const lbCaption = document.getElementById('lbCaption');
   const lbClose = document.getElementById('lbClose');
-
   if(!lightbox) return;
 
   function open(src, caption){
     lbImg.src = src;
     lbCaption.textContent = caption || '';
-    lightbox.setAttribute('aria-hidden', 'false');
+    lightbox.setAttribute('aria-hidden','false');
   }
   function close(){
-    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.setAttribute('aria-hidden','true');
     lbImg.src = '';
     lbCaption.textContent = '';
   }
@@ -87,13 +114,10 @@ function setupLightbox(){
     const fig = ev.target.closest('figure');
     if(!fig) return;
     const img = fig.querySelector('img');
-    if(img && img.src){
-      // only open if the figure is inside .project-media or sketch-gallery
-      if(fig.closest('.project-media') || fig.closest('.sketch-gallery') || fig.closest('.sketch-thumbs')){
-        ev.preventDefault();
-        const caption = fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : img.alt || '';
-        open(img.src, caption);
-      }
+    if(img && img.src && (fig.closest('.project-media') || fig.closest('.sketch-gallery') || fig.closest('.sketch-thumbs'))){
+      ev.preventDefault();
+      const caption = (fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : img.alt || '');
+      open(img.getAttribute('src'), caption);
     }
   });
 
@@ -102,13 +126,11 @@ function setupLightbox(){
   document.addEventListener('keydown', (ev)=>{ if(ev.key === 'Escape') close(); });
 }
 
-// --- other helpers (github repos, resume buttons) ---
+// --- other helpers ---
 function wireResumeButtons(){
   try{
     const resumeButtons = document.querySelectorAll('[href="resume.pdf"], #resumeButton');
-    resumeButtons.forEach(b => {
-      b.addEventListener('click', ()=>{ /* analytics hook */ });
-    });
+    resumeButtons.forEach(b => { b.addEventListener('click', ()=>{}); });
   }catch(e){ console.error('wireResumeButtons error', e); }
 }
 
@@ -139,13 +161,13 @@ function loadGitHubRepos(username='saimn2213', max=6){
 
 document.addEventListener('DOMContentLoaded', ()=>{
   try{
-    // Initialize canvas and starfield after DOM exists
     canvas = document.getElementById('starfield');
     ctx = canvas ? canvas.getContext('2d') : null;
     resizeCanvas();
     initStars();
     drawStars();
-    window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
+    window.addEventListener('resize', onResizeDebounced);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     setupPageTransitions();
     setupLightbox();
