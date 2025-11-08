@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Flight Path Simulation — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=3">
+  <link rel="stylesheet" href="../style.css?v=5">
 </head>
 <body>
   <canvas id="starfield" aria-hidden="true"></canvas>
@@ -23,17 +23,26 @@
     <h2>Flight Path Simulation (Python)</h2>
 
     <section class="project-media">
-      <figure><img src="../images/project2.svg" alt="Flight sim illustration"><figcaption>Simulation concept and sample output visuals</figcaption></figure>
+      <figure><img src="../images/project2.svg" alt="Flight sim illustration"><figcaption>Simulation concept</figcaption></figure>
       <figure><img src="../images/fuelplot.png" alt="Fuel flow plot"><figcaption>Fuel Flow Plot — fuel flow vs altitude under varying winds</figcaption></figure>
-      <figure><img src="../images/fuelplot2.png" alt="Additional fuel flow variant"><figcaption>Additional fuel flow plot (user-supplied image)</figcaption></figure>
+      <figure><img src="../images/fuelplot2.png" alt="Fuel flow plot variant"><figcaption>Additional user-supplied fuel flow plot</figcaption></figure>
     </section>
 
     <section class="project-explanation">
-      <h3>Simulation details</h3>
-      <p>The simulation models a simplified point-mass aircraft system with basic aerodynamic assumptions and a thrust model. Numerical integration is performed with a fixed-step RK4 integrator. Plots show how wind conditions (headwind/tailwind/no wind) affect fuel flow across altitudes.</p>
+      <h3>Model & assumptions</h3>
+      <p>Simplified point-mass aircraft, empirical drag coefficient, thrust and fuel-burn model. Lift approximated linearly around the operating angle-of-attack range.</p>
 
-      <h4>Source & how to run</h4>
-      <p>See the repo for the Python scripts. Run: <code>python3 simulate.py</code> (requirements: numpy, matplotlib). Output images are generated to the plots/ directory.</p>
+      <h3>Numerical method</h3>
+      <p>RK4 fixed-step integrator (dt chosen for stability). Implemented a PID controller for altitude/heading hold experiments; plotted fuel flow against altitude for different wind cases.</p>
+
+      <h3>Results</h3>
+      <p>Plots show that headwinds increase fuel flow at cruise more than tailwinds reduce it — highlights the importance of wind-aware flight planning for fuel efficiency.</p>
+
+      <h3>How to run</h3>
+      <p>Dependencies: numpy, matplotlib. Example: <code>python3 simulate.py --altitude 34000 --wind -20</code>. Output images saved to <code>plots/</code>.</p>
+
+      <h3>Source</h3>
+      <p>Link to the simulation code (if present) in your GitHub repo. If you'd like, provide the repo URL and I will add a "View code" link here.</p>
     </section>
 
     <a class="btn" href="../projects.html">Back to projects</a>
