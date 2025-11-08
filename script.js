@@ -1,5 +1,8 @@
+// Simplified navigation & lightbox; adds placeholder src for lightbox image to satisfy W3C
 let canvas, ctx, width, height, stars=[];
 const MAX_STARS=120, STAR_DENSITY=10000, TRANSITION_DURATION=320;
+// 1x1 transparent GIF placeholder (valid src to satisfy validator)
+const LB_PLACEHOLDER="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
 function resizeCanvas(){ if(!canvas) return; width=innerWidth; height=innerHeight; canvas.width=width; canvas.height=height; }
 function initStars(){ if(!ctx) return; stars=[]; const count=Math.min(MAX_STARS, Math.max(30, Math.floor((width*height)/STAR_DENSITY))); for(let i=0;i<count;i++){ stars.push({x:Math.random()*width,y:Math.random()*height,z:Math.random()*1.6+0.2}); } }
@@ -13,7 +16,6 @@ function setupPageTransitions(){
   document.addEventListener('click', e=>{
     let a=e.target.closest('a');
     if(!a) return;
-    // If inside a project card child (e.g., clicking H3 or IMG), use the outer project-card anchor
     if(!a.classList.contains('project-card')){
       const parentCard=e.target.closest('a.project-card');
       if(parentCard) a=parentCard;
@@ -37,16 +39,32 @@ function setupLightbox(){
   const lbImg=document.getElementById('lbImg');
   const lbCaption=document.getElementById('lbCaption');
   const lbClose=document.getElementById('lbClose');
-  function open(src, caption){ lbImg.src=src; lbCaption.textContent=caption||''; lightbox.setAttribute('aria-hidden','false'); }
-  function close(){ lightbox.setAttribute('aria-hidden','true'); lbImg.src=''; lbCaption.textContent=''; }
+
+  // ensure placeholder is present at startup
+  if(lbImg && !lbImg.getAttribute('src')) lbImg.setAttribute('src', LB_PLACEHOLDER);
+
+  function open(src, caption){
+    lbImg.src = src || LB_PLACEHOLDER;
+    lbImg.alt = caption || '';
+    lbCaption.textContent = caption || '';
+    lightbox.setAttribute('aria-hidden','false');
+  }
+  function close(){
+    lightbox.setAttribute('aria-hidden','true');
+    lbImg.src = LB_PLACEHOLDER;   // restore valid src (not empty)
+    lbImg.alt = '';
+    lbCaption.textContent = '';
+  }
 
   document.addEventListener('click', e=>{
     const img=e.target.closest('figure img');
     if(!img) return;
-    if(!img.closest('.project-media') && !img.closest('.sketch-thumbs')) return;
+    const figure=img.closest('figure');
+    if(!(figure && (figure.closest('.project-media') || figure.closest('.sketch-thumbs')))) return;
     e.preventDefault();
-    open(img.currentSrc||img.src, img.dataset.caption||img.alt||img.closest('figure')?.querySelector('figcaption')?.textContent||'');
+    open(img.currentSrc||img.src, img.dataset.caption||img.alt||figure.querySelector('figcaption')?.textContent||'');
   });
+
   lbClose?.addEventListener('click', close);
   lightbox.addEventListener('click', e=>{ if(e.target===lightbox) close(); });
   document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
