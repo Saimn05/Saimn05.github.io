@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Flight Path Simulation — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=10">
+  <title>Gravity-Powered Car — Saimn Zuhairi</title>
+  <link rel="stylesheet" href="../style.css?v=12">
 </head>
 <body class="page-enter theme-projects">
   <canvas id="starfield" aria-hidden="true"></canvas>
+
   <header class="navbar">
     <a class="logo" href="../index.html" aria-label="Home"><h1>Saimn Zuhairi</h1></a>
     <nav>
@@ -19,36 +20,43 @@
   </header>
 
   <main class="section">
-    <h2>Flight Path Simulation (Python)</h2>
+    <h2>Gravity-Powered Car (Recycled Materials)</h2>
 
     <section class="project-media">
       <figure>
-        <img src="../images/aircraft.jpg"
-             alt="Representative aircraft for simulation"
-             width="317" height="159"
+        <img src="../images/gravity-prototype.jpg"
+             alt="Wooden gravity car prototype"
+             width="768" height="768"
              loading="lazy" decoding="async"
-             onerror="this.onerror=null; this.src='../images/project2.svg';">
-        <figcaption>Representative aircraft for fuel‑flow & wind sensitivity.</figcaption>
+             onerror="this.onerror=null; this.src='../images/sketch1.jpg';"
+             data-caption="Prototype build used for friction tests.">
+        <figcaption>Prototype build used for friction tests.</figcaption>
       </figure>
       <figure>
-        <img src="../images/fuelplot.png" alt="Fuel flow plot"
-             width="940" height="559" loading="lazy" decoding="async">
-        <figcaption>Fuel Flow Plot — altitude vs flow with wind cases.</figcaption>
+        <img src="../images/sketch1.jpg" alt="Concept sketch views"
+             width="1200" height="800" loading="lazy" decoding="async"
+             data-caption="Sketch 1 — concept views.">
+        <figcaption>Sketch 1 — concept views.</figcaption>
       </figure>
       <figure>
-        <img src="../images/fuelplot2.png" alt="Alternate fuel flow plot"
-             width="940" height="562" loading="lazy" decoding="async">
-        <figcaption>Alternate fuel flow plot for comparison.</figcaption>
+        <img src="../images/sketch2.jpg" alt="Ballast cavity sketch"
+             width="1200" height="800" loading="lazy" decoding="async"
+             data-caption="Sketch 2 — ballast cavity.">
+        <figcaption>Sketch 2 — ballast cavity.</figcaption>
       </figure>
     </section>
 
     <section class="project-explanation">
-      <h3>Model & assumptions</h3>
-      <p>Simplified point‑mass aircraft; empirical drag; thrust and fuel model; linear lift in operating AoA band.</p>
-      <h3>Numerical method</h3>
-      <p>RK4 fixed‑step integrator; PID trials for altitude/heading hold under changing wind vectors.</p>
-      <h3>How to run</h3>
-      <p>Dependencies: numpy, matplotlib. Example: <code>python3 simulate.py --altitude 34000 --wind -20</code>.</p>
+      <h3>Overview</h3>
+      <p>Testbed for evaluating how mass placement and axle alignment impact downhill performance.</p>
+      <h3>Materials & fabrication</h3>
+      <ul>
+        <li>Body: recycled wood / foam variants.</li>
+        <li>Wheels: simple discs; future upgrade to bearings.</li>
+        <li>Ballast: adjustable internal mass.</li>
+      </ul>
+      <h3>Measurements & results</h3>
+      <p>Millimeter-scale ballast shifts changed distance measurably; misalignment introduced lateral drag.</p>
     </section>
 
     <a class="btn" href="../projects.html">Back to projects</a>
