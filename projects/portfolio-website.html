@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Portfolio Website — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=14">
+  <link rel="stylesheet" href="../style.css?v=15">
 </head>
 <body class="page-enter theme-projects">
   <canvas id="starfield" aria-hidden="true"></canvas>
@@ -26,14 +26,14 @@
       <figure>
         <img src="../images/sketch3.jpg" alt="Portfolio design sketch"
              width="1200" height="800" loading="lazy" decoding="async"
-             data-caption="Design sketch outlining layout sections and navigation.">
-        <figcaption>Design sketch outlining layout sections and navigation.</figcaption>
+             data-caption="Design sketch outlining layout & navigation.">
+        <figcaption>Design sketch outlining layout & navigation.</figcaption>
       </figure>
       <figure>
-        <img src="../images/portfolio-code.png?v=2" alt="Code screenshot of the portfolio site"
+        <img src="../images/portfolio-code.png?v=3" alt="Code screenshot of the portfolio site"
              width="1500" height="900" loading="lazy" decoding="async"
              data-caption="Code snapshot (HTML/CSS/JS) for this site."
-             onerror="this.onerror=null; this.src='../images/repo-dashboard.png'; this.alt='Repository dashboard showing deployments & language stats'; this.dataset.caption='Repository dashboard (deployments & language split).';">
+             onerror="this.onerror=null; this.src='../images/repo-dashboard.png'; this.alt='Repository dashboard'; this.dataset.caption='Repository dashboard (deployments & language split).';">
         <figcaption>Code snapshot of the live site (fallback shows repository dashboard).</figcaption>
       </figure>
     </section>
@@ -41,28 +41,17 @@
     <section class="project-explanation">
       <h3>Implementation notes</h3>
       <ul>
-        <li>Static architecture: HTML/CSS/JS on GitHub Pages — low latency, no frameworks.</li>
+        <li>Static architecture: HTML/CSS/JS on GitHub Pages — minimal latency.</li>
         <li>Performance:
           <ul>
-            <li>Lazy images + explicit dimensions prevent CLS.</li>
-            <li>Single deferred JS; starfield capped, debounced, paused when hidden.</li>
-            <li>CSS transitions (no heavy libraries) keep overhead under 2 ms.</li>
+            <li>Lazy images + fixed dimensions prevent CLS.</li>
+            <li>Single deferred JS; animation paused when tab hidden.</li>
+            <li>Lightweight CSS transitions instead of libraries.</li>
           </ul>
         </li>
-        <li>Accessibility:
-          <ul>
-            <li>Semantic landmarks & descriptive link text.</li>
-            <li>Alt attributes for all imagery.</li>
-            <li>ESC & click-away lightbox dismissal.</li>
-          </ul>
-        </li>
-        <li>Data & build:
-          <ul>
-            <li>Repo snapshot documents deployments & language split.</li>
-            <li>Planned: inline critical CSS + small service worker + Lighthouse logging.</li>
-          </ul>
-        </li>
-        <li>Structure: lowercase filenames; body class themes.</li>
+        <li>Accessibility: semantic landmarks, clear alt text, ESC/click-away lightbox.</li>
+        <li>Data & build: repository snapshot planned (deployments & language split); future inline critical CSS + SW.</li>
+        <li>Structure: lowercase filenames; theme via body classes.</li>
       </ul>
     </section>
 
