@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Flight Path Simulation — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=8">
+  <link rel="stylesheet" href="../style.css?v=9">
 </head>
 <body class="page-enter theme-projects">
   <canvas id="starfield" aria-hidden="true"></canvas>
-
   <header class="navbar">
     <a class="logo" href="../index.html" aria-label="Home"><h1>Saimn Zuhairi</h1></a>
     <nav>
@@ -24,29 +23,29 @@
 
     <section class="project-media">
       <figure>
-        <img src="../images/project2.svg" alt="Simulation concept"
-             width="800" height="480" loading="lazy" decoding="async">
-        <figcaption>Simulation concept</figcaption>
+        <img src="../images/aircraft.jpg" alt="Representative aircraft for simulation"
+             width="317" height="159" loading="lazy" decoding="async">
+        <figcaption>Representative aircraft for fuel-flow & wind sensitivity.</figcaption>
       </figure>
       <figure>
-        <img src="../images/fuelplot.png" alt="Fuel flow plot"
+        <img src="../images/fuelplot.png" alt="Fuel flow vs altitude plot"
              width="940" height="559" loading="lazy" decoding="async">
-        <figcaption>Fuel Flow Plot — fuel flow vs altitude</figcaption>
+        <figcaption>Fuel Flow Plot — altitude vs flow with wind cases.</figcaption>
       </figure>
       <figure>
-        <img src="../images/fuelplot2.png" alt="Alternate fuel flow plot"
+        <img src="../images/fuelplot2.png" alt="Additional fuel flow plot variant"
              width="940" height="562" loading="lazy" decoding="async">
-        <figcaption>Alternate fuel flow plot</figcaption>
+        <figcaption>Alternate fuel flow plot for comparison.</figcaption>
       </figure>
     </section>
 
     <section class="project-explanation">
       <h3>Model & assumptions</h3>
-      <p>Simplified point-mass aircraft with empirical drag coefficient, thrust/fuel model; lift approximated linearly around the operating AoA.</p>
+      <p>Simplified point‑mass aircraft; empirical drag; thrust and fuel model; linear lift in operating AoA band.</p>
       <h3>Numerical method</h3>
-      <p>RK4 fixed-step integrator; simple PID for heading/altitude hold experiments.</p>
+      <p>RK4 fixed‑step integrator; PID trials for altitude/heading hold under changing wind vectors.</p>
       <h3>How to run</h3>
-      <p>Dependencies: numpy, matplotlib. Example: <code>python3 simulate.py --altitude 34000 --wind -20</code>. Output saved to <code>plots/</code>.</p>
+      <p>Dependencies: numpy, matplotlib.<br>Example: <code>python3 simulate.py --altitude 34000 --wind -20</code>.</p>
     </section>
 
     <a class="btn" href="../projects.html">Back to projects</a>
