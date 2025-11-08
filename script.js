@@ -77,7 +77,7 @@ function setupPageTransitions(){
   });
 }
 
-// --- lightbox (unchanged) ---
+// --- lightbox (open exactly the clicked image) ---
 function setupLightbox(){
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
@@ -85,18 +85,27 @@ function setupLightbox(){
   const lbClose = document.getElementById('lbClose');
   if(!lightbox) return;
 
-  function open(src, caption){ lbImg.src = src; lbCaption.textContent = caption || ''; lightbox.setAttribute('aria-hidden','false'); }
-  function close(){ lightbox.setAttribute('aria-hidden','true'); lbImg.src = ''; lbCaption.textContent = ''; }
+  function open(src, caption){
+    lbImg.src = src;
+    lbCaption.textContent = caption || '';
+    lightbox.setAttribute('aria-hidden','false');
+  }
+  function close(){
+    lightbox.setAttribute('aria-hidden','true');
+    lbImg.src = '';
+    lbCaption.textContent = '';
+  }
 
   document.addEventListener('click', (ev)=>{
-    const fig = ev.target.closest('figure');
-    if(!fig) return;
-    const img = fig.querySelector('img');
-    if(img && img.src && (fig.closest('.project-media') || fig.closest('.sketch-gallery') || fig.closest('.sketch-thumbs'))){
-      ev.preventDefault();
-      const caption = (fig.querySelector('figcaption') ? fig.querySelector('figcaption').textContent : img.alt || '');
-      open(img.getAttribute('src'), caption);
-    }
+    const img = ev.target.closest('img');
+    if(!img) return;
+    const figure = ev.target.closest('figure');
+    // Only lightbox images inside project/gallery sections
+    if(!(figure && (figure.closest('.project-media') || figure.closest('.sketch-gallery') || figure.closest('.sketch-thumbs')))) return;
+    ev.preventDefault();
+    const src = img.getAttribute('src');
+    const caption = img.dataset.caption || img.alt || (figure.querySelector('figcaption')?.textContent || '');
+    open(src, caption);
   });
 
   lbClose?.addEventListener('click', close);
@@ -123,20 +132,20 @@ function loadGitHubRepos(username='saimn2213', max=6){
       container.appendChild(d);
     });
   })
-  .catch(err=>{ container.innerHTML = '<p>Unable to load GitHub repositories.</p>'; console.error('loadGitHubRepos error', err); });
+  .catch(err=>{
+    container.innerHTML = '<p>Unable to load GitHub repositories.</p>';
+    console.error('loadGitHubRepos error', err);
+  });
 }
 
-// --- runtime image performance helpers ---
+// Add lazy + aspect ratio to imgs
 function applyLazyAndAspectRatio(){
   try{
     document.querySelectorAll('img').forEach(img => {
-      // lazy-load if not set
       if(!img.loading) img.loading = 'lazy';
-      // If width/height attrs missing, set an aspect-ratio based on natural size when available
       if(!img.hasAttribute('width') || !img.hasAttribute('height')){
         const setAspect = () => {
           if(img.naturalWidth && img.naturalHeight){
-            // set CSS aspect-ratio to avoid layout shift
             img.style.aspectRatio = `${img.naturalWidth}/${img.naturalHeight}`;
           }
         };
@@ -146,14 +155,11 @@ function applyLazyAndAspectRatio(){
   }catch(e){ console.error('applyLazyAndAspectRatio', e); }
 }
 
-// --- init ---
 document.addEventListener('DOMContentLoaded', ()=>{
   try{
     canvas = document.getElementById('starfield');
     ctx = canvas ? canvas.getContext('2d') : null;
-    resizeCanvas();
-    initStars();
-    drawStars();
+    resizeCanvas(); initStars(); drawStars();
     window.addEventListener('resize', onResizeDebounced);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
