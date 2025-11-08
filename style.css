@@ -17,13 +17,16 @@ canvas#starfield{position:fixed;inset:0;z-index:0;opacity:0.35;pointer-events:no
 .navbar nav a{color:var(--text);text-decoration:none;margin-left:14px;opacity:0.9}
 .navbar nav a.active{color:var(--accent)}
 
-.section{position:relative;z-index:5;max-width:980px;margin:48px auto;padding:0 20px;transition:transform .35s ease,opacity .35s ease}
-.page-enter .section{opacity:0;transform:translateY(8px)}
-.page-enter.page-enter-active .section{opacity:1;transform:none}
+/* Section enter/exit animations (robust selectors)
+   - .page-enter is present on initial load in HTML to keep content hidden until JS flips it.
+   - .page-enter-active is toggled by JS to trigger the final fade-in.
+   - .page-exit is added by JS when navigating away to run exit animation.
+*/
 .page-enter .section{ opacity:0; transform:translateY(8px); transition: transform .35s ease, opacity .35s ease; }
 .page-enter-active .section{ opacity:1; transform:none; }
-.page-exit .section{opacity:0;transform:translateY(-8px)}
 .page-exit .section{ opacity:0; transform:translateY(-8px); transition: transform .28s ease, opacity .28s ease; }
+
+.section{position:relative;z-index:5;max-width:980px;margin:48px auto;padding:0 20px}
 
 /* thumbnail grid on homepage */
 .sketch-thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px}
