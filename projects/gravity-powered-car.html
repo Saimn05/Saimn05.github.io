@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gravity-Powered Car — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=15">
+  <link rel="stylesheet" href="../style.css?v=17">
 </head>
 <body class="page-enter theme-projects">
   <canvas id="starfield" aria-hidden="true"></canvas>
+
   <header class="navbar">
     <a class="logo" href="../index.html" aria-label="Home"><h1>Saimn Zuhairi</h1></a>
     <nav>
@@ -22,6 +23,7 @@
     <h2>Gravity-Powered Car (Recycled Materials)</h2>
 
     <section class="project-media">
+      <h3 class="visually-hidden">Project media</h3>
       <figure>
         <img src="../images/gravity-prototype.jpg" alt="Wooden gravity car prototype"
              width="768" height="768" loading="lazy" decoding="async"
@@ -58,9 +60,11 @@
   </main>
 
   <div id="lightbox" class="lightbox" aria-hidden="true">
+    <figure class="lb-figure" role="group" aria-label="Image viewer">
+      <img id="lbImg" alt="" width="1200" height="800">
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
     <button id="lbClose" class="lb-close" aria-label="Close">✕</button>
-    <img id="lbImg" src="" alt="" width="1200" height="800">
-    <figcaption id="lbCaption"></figcaption>
   </div>
 
   <script src="../script.js" defer></script>
