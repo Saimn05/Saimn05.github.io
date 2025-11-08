@@ -4,9 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio Website — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=10">
+  <link rel="stylesheet" href="../style.css?v=11">
   <style>
-    /* Small inline layout tweak for the combined mock + data figure */
     .dual-thumb{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
     .dual-thumb img{width:100%;height:160px;object-fit:cover;border-radius:6px;background:#0d2233}
     @media (max-width:640px){
@@ -38,52 +37,45 @@
         <figcaption>Design sketch outlining layout sections and navigation.</figcaption>
       </figure>
 
-      <!-- Combined site mock + data screenshot (replaces previous extra images) -->
+      <!-- Combined site mock + code image with a robust fallback -->
       <figure>
         <div class="dual-thumb">
           <img src="../images/project3.svg" alt="Vector layout mock"
                width="800" height="480" loading="lazy" decoding="async">
-          <img src="../images/repo-dashboard.png" alt="Repository dashboard showing deployments & language stats"
-               width="1218" height="563" loading="lazy" decoding="async">
+          <img src="../images/portfolio-code.png" alt="Code screenshot of the portfolio site"
+               width="1500" height="900" loading="lazy" decoding="async"
+               onerror="this.onerror=null; this.src='../images/repo-dashboard.png';">
         </div>
-        <figcaption>Site mock (left) with live repository data snapshot (right: deployments & language breakdown).</figcaption>
+        <figcaption>Site mock (left) and code snapshot (right). If the code image is missing, a repository dashboard image is shown instead.</figcaption>
       </figure>
     </section>
 
     <section class="project-explanation">
       <h3>Implementation notes</h3>
       <ul>
-        <li>Architecture: purely static HTML/CSS/JS served by GitHub Pages, minimizing latency and complexity.</li>
-        <li>Performance strategy: 
+        <li>Static architecture: HTML/CSS/JS on GitHub Pages — no frameworks to keep TTFB low.</li>
+        <li>Performance:
           <ul>
-            <li>Starfield animation capped and paused on <code>visibilitychange</code> to reduce CPU when tab is hidden.</li>
-            <li>All non-critical images use <code>loading="lazy"</code> + explicit dimensions to prevent layout shift.</li>
-            <li>Single JS file (~small footprint) loaded with <code>defer</code>; no blocking third‑party scripts.</li>
-            <li>CSS theme variables per page (home/projects/experience/contact) swapped via body class, avoiding additional requests.</li>
-            <li>Page transitions implemented with class toggles (no heavy libraries) — average navigation overhead &lt; 2ms.</li>
+            <li>Lazy images + width/height to avoid layout shifts (CLS) and reduce initial network cost.</li>
+            <li>One deferred JS file; starfield capped, debounced on resize, and paused when the tab is hidden.</li>
+            <li>Page transitions via CSS classes (no libraries), typical overhead under 2 ms.</li>
           </ul>
         </li>
         <li>Accessibility:
           <ul>
-            <li>Semantic landmarks (header, main, nav) and descriptive link text.</li>
-            <li>Alt text for all images (mock, data, sketches, prototype, plots).</li>
-            <li>Color palettes chosen for sufficient contrast (target WCAG AA; accent vs background contrast checked).</li>
-            <li>Lightbox is keyboard‑dismissable (Escape) and not auto-focused to avoid focus traps.</li>
+            <li>Semantic landmarks, descriptive links, alt text for all imagery.</li>
+            <li>Theme palettes tuned for contrast (target WCAG AA).</li>
+            <li>Lightbox ESC-to-close; click-away to dismiss; no focus traps.</li>
           </ul>
         </li>
-        <li>Data integration: repository dashboard screenshot documents recent deployments (GitHub Pages) and language distribution (HTML/CSS/JS proportions).</li>
-        <li>Resilience: defensive JS guards (null checks, try/catch) ensure partial failures (e.g., GitHub API rate limit) don’t break rendering.</li>
-        <li>Future improvements:
+        <li>Data & build:
           <ul>
-            <li>Add build step to inline critical CSS and generate a small service worker for offline viewing.</li>
-            <li>Incorporate Lighthouse metrics section (FCP, LCP, CLS) collected from local audits.</li>
-            <li>Offer downloadable design tokens file for color palette reuse.</li>
+            <li>Repo snapshot documents recent deployments and language split.</li>
+            <li>Future: inline critical CSS and small SW for offline viewing; Lighthouse check for FCP/LCP/CLS.</li>
           </ul>
         </li>
+        <li>Structure: lowercase filenames; assets in <code>images/</code>; themes via body classes.</li>
       </ul>
-
-      <h3>Structure</h3>
-      <p>Lowercase filenames; assets in <code>images/</code>. Theme variables defined once in <code>style.css</code> and adjusted via body theme classes. Transition classes (<code>page-enter</code>, <code>page-exit</code>) are applied dynamically for a lightweight animated navigation feel.</p>
     </section>
 
     <a class="btn" href="../projects.html">Back to projects</a>
