@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Home — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="./style.css?v=14">
+  <link rel="stylesheet" href="./style.css?v=15">
   <style>
-    /* Card as single anchor */
     .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
     a.project-card{display:flex;flex-direction:column;gap:10px;background:var(--card);padding:16px;border-radius:10px;
       text-decoration:none;color:var(--text);min-height:260px;transition:background .2s}
@@ -41,19 +40,19 @@
     <h2>Design Sketches (open a project for full sets)</h2>
     <section class="sketch-thumbs">
       <a href="projects/gravity-powered-car.html" class="thumb-link">
-        <img src="images/sketch1.jpg" alt="Gravity car concept sketch" width="480" height="320" loading="lazy" decoding="async">
+        <img src="images/sketch1.jpg" alt="Gravity car concept sketch" width="480" height="320" loading="lazy">
         <span>Gravity car — concept</span>
       </a>
       <a href="projects/gravity-powered-car.html" class="thumb-link">
-        <img src="images/sketch2.jpg" alt="Ballast cavity sketch" width="480" height="320" loading="lazy" decoding="async">
+        <img src="images/sketch2.jpg" alt="Ballast cavity sketch" width="480" height="320" loading="lazy">
         <span>Ballast cavity</span>
       </a>
       <a href="projects/flight-path-simulation.html" class="thumb-link">
-        <img src="images/fuelplot.png" alt="Fuel flow plot" width="940" height="559" loading="lazy" decoding="async">
+        <img src="images/fuelplot.png" alt="Fuel flow plot" width="940" height="559" loading="lazy">
         <span>Fuel flow plot</span>
       </a>
       <a href="projects/portfolio-website.html" class="thumb-link">
-        <img src="images/sketch3.jpg" alt="Portfolio sketch" width="480" height="320" loading="lazy" decoding="async">
+        <img src="images/sketch3.jpg" alt="Portfolio sketch" width="480" height="320" loading="lazy">
         <span>Portfolio sketch</span>
       </a>
     </section>
@@ -61,24 +60,24 @@
     <h2>Engineering & Aerospace Projects</h2>
     <div class="project-grid">
       <a class="project-card" href="projects/gravity-powered-car.html" data-project="gravity">
-        <img src="images/gravity-prototype.jpg" alt="Gravity car prototype" width="768" height="768"
-             loading="lazy" decoding="async" onerror="this.onerror=null; this.src='images/sketch1.jpg';">
+        <img src="images/gravity-prototype.jpg" alt="Gravity car prototype" width="768" height="768" loading="lazy"
+             onerror="this.onerror=null; this.src='images/sketch1.jpg';">
         <h3>Gravity-Powered Car (Recycled Materials)</h3>
-        <p>Prototype exploring mass distribution & rolling resistance; includes physical build and sketches.</p>
+        <p>Prototype exploring mass distribution & rolling resistance; physical build and sketches.</p>
       </a>
 
       <a class="project-card" href="projects/flight-path-simulation.html" data-project="flight">
-        <img src="images/aircraft.jpg" alt="Aircraft for simulation context" width="317" height="159"
-             loading="lazy" decoding="async" onerror="this.onerror=null; this.src='images/fuelplot.png';">
+        <img src="images/aircraft.jpg" alt="Aircraft for simulation context" width="317" height="159" loading="lazy"
+             onerror="this.onerror=null; this.src='images/fuelplot.png';">
         <h3>Flight Path Simulation (Python)</h3>
-        <p>RK4 integration + PID altitude/heading experiments with wind & fuel-flow plots.</p>
+        <p>RK4 integration + PID experiments; wind & fuel-flow analysis plots.</p>
       </a>
 
       <a class="project-card" href="projects/portfolio-website.html" data-project="portfolio">
-        <img src="images/portfolio-code.png?v=2" alt="Portfolio site code screenshot" width="1500" height="900"
-             loading="lazy" decoding="async" onerror="this.onerror=null; this.src='images/repo-dashboard.png';">
+        <img src="images/portfolio-code.png?v=3" alt="Portfolio site code screenshot" width="1500" height="900" loading="lazy"
+             onerror="this.onerror=null; this.src='images/repo-dashboard.png';">
         <h3>Responsive Portfolio Website</h3>
-        <p>Static, accessible site implementation with performance-conscious design choices.</p>
+        <p>Static accessible site with performance-conscious design choices.</p>
       </a>
     </div>
 
