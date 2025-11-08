@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio Website — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="../style.css?v=15">
+  <link rel="stylesheet" href="../style.css?v=17">
 </head>
 <body class="page-enter theme-projects">
   <canvas id="starfield" aria-hidden="true"></canvas>
@@ -23,6 +23,7 @@
     <h2>Responsive Portfolio Website</h2>
 
     <section class="project-media">
+      <h3 class="visually-hidden">Project media</h3>
       <figure>
         <img src="../images/sketch3.jpg" alt="Portfolio design sketch"
              width="1200" height="800" loading="lazy" decoding="async"
@@ -42,15 +43,9 @@
       <h3>Implementation notes</h3>
       <ul>
         <li>Static architecture: HTML/CSS/JS on GitHub Pages — minimal latency.</li>
-        <li>Performance:
-          <ul>
-            <li>Lazy images + fixed dimensions prevent CLS.</li>
-            <li>Single deferred JS; animation paused when tab hidden.</li>
-            <li>Lightweight CSS transitions instead of libraries.</li>
-          </ul>
-        </li>
-        <li>Accessibility: semantic landmarks, clear alt text, ESC/click-away lightbox.</li>
-        <li>Data & build: repository snapshot planned (deployments & language split); future inline critical CSS + SW.</li>
+        <li>Performance: lazy images + fixed dimensions; deferred single JS; animation paused when hidden.</li>
+        <li>Accessibility: semantic landmarks, skip link, clear alt text, ESC/click‑away lightbox.</li>
+        <li>Data & build: planned repo snapshot; future inline critical CSS + SW.</li>
         <li>Structure: lowercase filenames; theme via body classes.</li>
       </ul>
     </section>
@@ -58,10 +53,13 @@
     <a class="btn" href="../projects.html">Back to projects</a>
   </main>
 
+  <!-- Lightbox fixed for W3C: figure inside overlay; img has no empty src -->
   <div id="lightbox" class="lightbox" aria-hidden="true">
+    <figure class="lb-figure" role="group" aria-label="Image viewer">
+      <img id="lbImg" alt="" width="1200" height="800">
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
     <button id="lbClose" class="lb-close" aria-label="Close">✕</button>
-    <img id="lbImg" src="" alt="" width="1200" height="800">
-    <figcaption id="lbCaption"></figcaption>
   </div>
 
   <script src="../script.js" defer></script>
