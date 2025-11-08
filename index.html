@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home — Saimn Zuhairi</title>
-  <link rel="stylesheet" href="./style.css?v=7">
+  <link rel="stylesheet" href="./style.css?v=8">
 </head>
-<body class="page-enter">
+<body class="page-enter theme-home">
   <canvas id="starfield" aria-hidden="true"></canvas>
 
   <header class="navbar">
@@ -25,7 +25,7 @@
     <section id="about" class="about-section">
       <img class="profile-img"
            src="images/linkedin.jpg"
-           alt="Profile photo"
+           alt="Profile photo of Saimn Zuhairi"
            width="400" height="400"
            loading="eager"
            fetchpriority="high">
@@ -56,8 +56,8 @@
         <span>Refined body / cockpit</span>
       </a>
       <a href="projects/flight-path-simulation.html" class="thumb-link">
-        <img src="images/sketch4.jpg" alt="Fuel flow plot"
-             width="480" height="320"
+        <img src="images/fuelplot.png" alt="Fuel flow plot"
+             width="940" height="559"
              loading="lazy" decoding="async">
         <span>Fuel flow plot</span>
       </a>
@@ -66,28 +66,35 @@
     <h2>Engineering & Aerospace Projects</h2>
 
     <div class="project-grid">
+      <!-- Project cards now use real project-related images on the homepage -->
       <article class="project-card">
-        <img src="images/project1.svg" alt="Gravity car icon"
-             width="800" height="480"
-             loading="lazy" decoding="async">
+        <a href="projects/gravity-powered-car.html">
+          <img src="images/sketch1.jpg" alt="Gravity car sketch"
+               width="600" height="400"
+               loading="lazy" decoding="async">
+        </a>
         <h3><a href="projects/gravity-powered-car.html">Gravity-Powered Car (Recycled Materials)</a></h3>
         <p>Lightweight vehicle testbed for mass distribution and rolling-resistance experiments — open for photos, sketches and results.</p>
         <a class="btn small" href="projects/gravity-powered-car.html">View details</a>
       </article>
 
       <article class="project-card">
-        <img src="images/project2.svg" alt="Flight simulation icon"
-             width="800" height="480"
-             loading="lazy" decoding="async">
+        <a href="projects/flight-path-simulation.html">
+          <img src="images/fuelplot2.png" alt="Flight simulation fuel plot"
+               width="940" height="562"
+               loading="lazy" decoding="async">
+        </a>
         <h3><a href="projects/flight-path-simulation.html">Flight Path Simulation (Python)</a></h3>
         <p>RK4-based numerical model, simple PID experiments and fuel-flow analysis — open for code & plots.</p>
         <a class="btn small" href="projects/flight-path-simulation.html">View details</a>
       </article>
 
       <article class="project-card">
-        <img src="images/project3.svg" alt="Portfolio site icon"
-             width="800" height="480"
-             loading="lazy" decoding="async">
+        <a href="projects/portfolio-website.html">
+          <img src="images/project3.svg" alt="Portfolio website layout"
+               width="800" height="480"
+               loading="lazy" decoding="async">
+        </a>
         <h3><a href="projects/portfolio-website.html">Responsive Portfolio Website</a></h3>
         <p>Static HTML/CSS/JS, lightweight and accessible. Click to see design assets and notes.</p>
         <a class="btn small" href="projects/portfolio-website.html">View details</a>
