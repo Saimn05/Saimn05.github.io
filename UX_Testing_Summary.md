@@ -44,7 +44,7 @@ Validated via page CSS and direct stylesheet.
 
 **Evidence**
 
-![CSS validation: portfolio page styles (no errors)](images/validation-css-portfolio.png)  
+![CSS validation: portfolio page styles (no errors)](images/validation-css-website.png)  
 *Figure 5. CSS validation result (page CSS).*
 
 ![CSS validation: direct style.css (no errors)](images/validation-css-style.png)  
