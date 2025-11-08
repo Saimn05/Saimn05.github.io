@@ -1,7 +1,6 @@
-// Simplified navigation & lightbox; adds placeholder src for lightbox image to satisfy W3C
+// Updated: lightbox uses placeholder src (validated), preserves aspect ratios; no empty src
 let canvas, ctx, width, height, stars=[];
 const MAX_STARS=120, STAR_DENSITY=10000, TRANSITION_DURATION=320;
-// 1x1 transparent GIF placeholder (valid src to satisfy validator)
 const LB_PLACEHOLDER="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
 function resizeCanvas(){ if(!canvas) return; width=innerWidth; height=innerHeight; canvas.width=width; canvas.height=height; }
@@ -39,30 +38,28 @@ function setupLightbox(){
   const lbImg=document.getElementById('lbImg');
   const lbCaption=document.getElementById('lbCaption');
   const lbClose=document.getElementById('lbClose');
-
-  // ensure placeholder is present at startup
   if(lbImg && !lbImg.getAttribute('src')) lbImg.setAttribute('src', LB_PLACEHOLDER);
 
   function open(src, caption){
-    lbImg.src = src || LB_PLACEHOLDER;
-    lbImg.alt = caption || '';
-    lbCaption.textContent = caption || '';
+    lbImg.src=src||LB_PLACEHOLDER;
+    lbImg.alt=caption||'';
+    lbCaption.textContent=caption||'';
     lightbox.setAttribute('aria-hidden','false');
   }
   function close(){
     lightbox.setAttribute('aria-hidden','true');
-    lbImg.src = LB_PLACEHOLDER;   // restore valid src (not empty)
-    lbImg.alt = '';
-    lbCaption.textContent = '';
+    lbImg.src=LB_PLACEHOLDER;
+    lbImg.alt='';
+    lbCaption.textContent='';
   }
 
   document.addEventListener('click', e=>{
     const img=e.target.closest('figure img');
     if(!img) return;
-    const figure=img.closest('figure');
-    if(!(figure && (figure.closest('.project-media') || figure.closest('.sketch-thumbs')))) return;
+    const gallery=img.closest('.project-media, .sketch-thumbs');
+    if(!gallery) return;
     e.preventDefault();
-    open(img.currentSrc||img.src, img.dataset.caption||img.alt||figure.querySelector('figcaption')?.textContent||'');
+    open(img.currentSrc||img.src, img.dataset.caption||img.alt||img.closest('figure')?.querySelector('figcaption')?.textContent||'');
   });
 
   lbClose?.addEventListener('click', close);
