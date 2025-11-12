@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900">
+  <defs>
+    <pattern id="grid-d" width="28" height="28" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="#fffdf7"/>
+      <path d="M28 0H0V28" fill="none" stroke="#ece7d9" stroke-width="1"/>
+    </pattern>
+    <filter id="rough-d" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.1" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <style>
+      .paper{fill:url(#grid-d)}
+      .p{fill:none;stroke:#2b2b2b;stroke-width:3;stroke-linecap:round;filter:url(#rough-d)}
+      .pd{fill:none;stroke:#4a4a4a;stroke-width:2;stroke-dasharray:6 8;filter:url(#rough-d)}
+      .note{fill:#1f1f1f;font:italic 18px "Segoe UI", Arial, sans-serif}
+      .title{fill:#1f1f1f;font:700 22px "Segoe UI", Arial, sans-serif}
+      .chip{fill:#cfe8ff;opacity:.45}
+      .mark{fill:#ffe48a;opacity:.45}
+    </style>
+  </defs>
+  <rect class="paper" x="0" y="0" width="1280" height="900"/>
+  <text class="title" x="28" y="48">Sketch — Project detail</text>
+
+  <text class="note" x="28" y="82">Media gallery</text>
+  <g transform="translate(28,96)">
+    <rect class="mark" x="0" y="0" width="600" height="280" rx="14"/>
+    <path class="p" d="M6 6h588v268H6z"/>
+    <rect class="mark" x="624" y="0" width="600" height="280" rx="14"/>
+    <path class="p" d="M630 6h588v268H630z"/>
+    <rect class="mark" x="0" y="304" width="600" height="280" rx="14"/>
+    <path class="p" d="M6 310h588v268H6z"/>
+    <rect class="mark" x="624" y="304" width="600" height="280" rx="14"/>
+    <path class="p" d="M630 310h588v268H630z"/>
+  </g>
+
+  <text class="note" x="28" y="710">Explanation and results</text>
+  <rect class="chip" x="28" y="726" width="1224" height="120" rx="14"/>
+  <path class="p" d="M34 732h1212v108H34z"/>
+  <path class="pd" d="M48 768h340M48 792h520M48 816h300"/>
+
+  <text class="note" x="28" y="866">Note: lightbox for larger view, back link to Projects.</text>
+</svg>
