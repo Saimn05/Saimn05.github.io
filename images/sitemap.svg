@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920" role="img" aria-labelledby="title desc">
+  <title id="title">Sitemap — Saimn Zuhairi Portfolio</title>
+  <desc id="desc">Tree diagram showing Site Root with children: Home, Projects, Experience, Contact. Home branches to About, Design Sketches, Engineering &amp; Aerospace Projects, and GitHub Repositories. Projects branches to three project pages. Contact branches to Email and Résumé PDF.</desc>
+
+  <defs>
+    <style>
+      .bg{fill:#0b1a2c}
+      .node{fill:#0f2030;stroke:#3a5f7c;stroke-width:2}
+      .text{fill:#e7f1f7;font:600 16px Inter,Segoe UI,Arial,sans-serif}
+      .small{fill:#9fb0c3;font:14px Inter,Segoe UI,Arial,sans-serif}
+      .title{fill:#e7f1f7;font:700 26px Inter,Segoe UI,Arial,sans-serif}
+      .link{fill:none;stroke:#7bd389;stroke-width:2}
+      .label-center{text-anchor:middle;dominant-baseline:middle}
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="920" rx="14"/>
+
+  <text class="title" x="24" y="44">Sitemap — Saimn Zuhairi Portfolio</text>
+
+  <!-- Root -->
+  <g id="root">
+    <rect class="node" x="490" y="30" width="220" height="56" rx="10"/>
+    <text class="text label-center" x="600" y="58">Site Root</text>
+  </g>
+
+  <!-- Level 1 pages -->
+  <!-- Home -->
+  <g id="home">
+    <rect class="node" x="40" y="150" width="240" height="56" rx="10"/>
+    <text class="text label-center" x="160" y="178">Home</text>
+  </g>
+
+  <!-- Projects (index) -->
+  <g id="projects">
+    <rect class="node" x="340" y="150" width="240" height="56" rx="10"/>
+    <text class="text label-center" x="460" y="178">Projects</text>
+  </g>
+
+  <!-- Experience -->
+  <g id="experience">
+    <rect class="node" x="640" y="150" width="240" height="56" rx="10"/>
+    <text class="text label-center" x="760" y="178">Experience</text>
+  </g>
+
+  <!-- Contact -->
+  <g id="contact">
+    <rect class="node" x="940" y="150" width="240" height="56" rx="10"/>
+    <text class="text label-center" x="1060" y="178">Contact</text>
+  </g>
+
+  <!-- Connect root to level 1 -->
+  <path class="link" d="M600 86V120H160V150"/>
+  <path class="link" d="M600 86V120H460V150"/>
+  <path class="link" d="M600 86V120H760V150"/>
+  <path class="link" d="M600 86V120H1060V150"/>
+
+  <!-- Level 2: Home sections -->
+  <g id="home-sections">
+    <rect class="node" x="20"  y="300" width="200" height="56" rx="10"/>
+    <text class="small label-center" x="120" y="328">About</text>
+
+    <rect class="node" x="230" y="300" width="220" height="56" rx="10"/>
+    <text class="small label-center" x="340" y="328">Design Sketches</text>
+
+    <rect class="node" x="460" y="300" width="260" height="56" rx="10"/>
+    <text class="small label-center" x="590" y="328">Engineering &amp; Aerospace Projects</text>
+
+    <rect class="node" x="740" y="300" width="250" height="56" rx="10"/>
+    <text class="small label-center" x="865" y="328">Latest GitHub Repositories</text>
+
+    <!-- connect Home to its sections -->
+    <path class="link" d="M160 206V260H120V300"/>
+    <path class="link" d="M160 206V260H340V300"/>
+    <path class="link" d="M160 206V260H590V300"/>
+    <path class="link" d="M160 206V260H865V300"/>
+  </g>
+
+  <!-- Level 2: Projects -> detail pages -->
+  <g id="project-pages">
+    <rect class="node" x="360" y="500" width="260" height="56" rx="10"/>
+    <text class="small label-center" x="490" y="528">Gravity‑Powered Car</text>
+
+    <rect class="node" x="640" y="500" width="260" height="56" rx="10"/>
+    <text class="small label-center" x="770" y="528">Flight Path Simulation</text>
+
+    <rect class="node" x="920" y="500" width="260" height="56" rx="10"/>
+    <text class="small label-center" x="1050" y="528">Portfolio Website</text>
+
+    <!-- connect Projects to each detail page -->
+    <path class="link" d="M460 206V460H490V500"/>
+    <path class="link" d="M460 206V460H770V500"/>
+    <path class="link" d="M460 206V460H1050V500"/>
+  </g>
+
+  <!-- Level 2: Experience (optional subsections) -->
+  <g id="experience-sub">
+    <rect class="node" x="620" y="620" width="280" height="56" rx="10"/>
+    <text class="small label-center" x="760" y="648">Roles &amp; Highlights</text>
+    <!-- connector -->
+    <path class="link" d="M760 206V600V620"/>
+  </g>
+
+  <!-- Level 2: Contact -> actions -->
+  <g id="contact-actions">
+    <rect class="node" x="940" y="620" width="240" height="56" rx="10"/>
+    <text class="small label-center" x="1060" y="648">Email (mailto:)</text>
+
+    <rect class="node" x="940" y="760" width="240" height="56" rx="10"/>
+    <text class="small label-center" x="1060" y="788">Résumé (PDF)</text>
+
+    <!-- connect Contact -->
+    <path class="link" d="M1060 206V600H1060V620"/>
+    <path class="link" d="M1060 206V740H1060V760"/>
+  </g>
+
+  <!-- Legend -->
+  <g id="legend">
+    <rect class="node" x="24" y="820" width="520" height="72" rx="10"/>
+    <text class="small" x="40" y="846">Conventions:</text>
+    <text class="small" x="40" y="868">• Rectangles = pages or major sections • Green lines = parent → child relationships</text>
+  </g>
+</svg>
