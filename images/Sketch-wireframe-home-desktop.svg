@@ -34,7 +34,7 @@
     <rect class="ghost" x="895" y="10" width="250" height="100" rx="6"/>
     <text class="muted small" x="901" y="135">Portfolio sketch</text>
   </g>
-  <text class="text label" x="20" y="490">Engineering & Aerospace Projects</text>
+  <text class="text label" x="20" y="490">Engineering and Aerospace Projects</text>
   <g transform="translate(20,510)">
     <rect class="card" x="0" y="0" width="370" height="210" rx="12"/>
     <rect class="ghost" x="10" y="10" width="350" height="120" rx="8"/>
