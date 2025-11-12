@@ -189,6 +189,5 @@
   <g transform="translate(24,1680)">
     <rect class="card" width="1352" height="120" rx="10"/>
     <text class="small" x="16" y="40">Note: Green squares indicate the chosen rating (1–10). This sheet summarises peer feedback from Baraa, Akhil, Sadat, and Mahin.</text>
-    <text class="small" x="16" y="68">Use “Export as PNG” by opening this SVG in a browser and using a screenshot/print to PDF if required by Word.</text>
   </g>
 </svg>
