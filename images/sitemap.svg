@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920" role="img" aria-labelledby="title desc">
   <title id="title">Sitemap — Saimn Zuhairi Portfolio</title>
-  <desc id="desc">Tree diagram showing Site Root with children: Home, Projects, Experience, Contact. Home branches to About, Design Sketches, Engineering &amp; Aerospace Projects, and GitHub Repositories. Projects branches to three project pages. Contact branches to Email and Résumé PDF. Lines are routed around nodes and drawn behind them.</desc>
+  <desc id="desc">Tree diagram with orthogonal connectors routed around nodes. Site Root branches to Home, Projects, Experience, and Contact. Home branches to About, Design Sketches, Engineering &amp; Aerospace Projects, and Latest GitHub Repositories. Projects branches to three project pages. Experience branches to Roles &amp; Highlights. Contact branches to Email and Résumé PDF.</desc>
 
   <defs>
     <style>
@@ -9,7 +9,7 @@
       .text{fill:#e7f1f7;font:600 16px Inter,Segoe UI,Arial,sans-serif}
       .small{fill:#9fb0c3;font:14px Inter,Segoe UI,Arial,sans-serif}
       .title{fill:#e7f1f7;font:700 26px Inter,Segoe UI,Arial,sans-serif}
-      .link{fill:none;stroke:#7bd389;stroke-width:2}
+      .link{fill:none;stroke:#7bd389;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
       .label-center{text-anchor:middle;dominant-baseline:middle}
     </style>
   </defs>
@@ -18,37 +18,40 @@
   <rect class="bg" x="0" y="0" width="1200" height="920" rx="14"/>
   <text class="title" x="24" y="44">Sitemap — Saimn Zuhairi Portfolio</text>
 
-  <!-- CONNECTORS (drawn FIRST so they sit behind nodes) -->
-  <g id="links" class="link">
-    <!-- Root to bus -->
-    <path d="M600 86V120"/>
+  <!-- CONNECTORS (draw first so they sit behind nodes) -->
+  <g class="link" aria-hidden="true">
+    <!-- Root to a small top bus, then elbows to each Level 1 page -->
+    <!-- Root bottom: (600,86) -->
+    <path d="M600 86 V 120"/>
+    <path d="M600 120 H 160 V 150"/>   <!-- Home -->
+    <path d="M600 120 H 460 V 150"/>   <!-- Projects -->
+    <path d="M600 120 H 760 V 150"/>   <!-- Experience -->
+    <path d="M600 120 H 1060 V 150"/>  <!-- Contact -->
 
-    <!-- Bus to Level 1 tops -->
-    <path d="M600 120H160V150"/>
-    <path d="M600 120H460V150"/>
-    <path d="M600 120H760V150"/>
-    <path d="M600 120H1060V150"/>
+    <!-- Home (bottom center 160,206) to its four sections.
+         Route down to y=260 (clearance below Level 1), across, then down to section tops (y=300). -->
+    <path d="M160 206 V 260 H 120 V 300"/>  <!-- About -->
+    <path d="M160 260 H 340 V 300"/>        <!-- Design Sketches -->
+    <path d="M160 260 H 590 V 300"/>        <!-- Engineering & Aerospace Projects -->
+    <path d="M160 260 H 865 V 300"/>        <!-- Latest GitHub Repositories -->
 
-    <!-- Home to its sections -->
-    <path d="M160 206V260H120V300"/>
-    <path d="M160 260H340V300"/>
-    <path d="M160 260H590V300"/>
-    <path d="M160 260H865V300"/>
+    <!-- Projects (bottom center 460,206) to each detail page.
+         IMPORTANT: drop below Home section row first (to y=370), then fan out to avoid touching the 'Engineering & Aerospace Projects' box. -->
+    <path d="M460 206 V 370 H 490 V 500"/>   <!-- Gravity‑Powered Car (top center 490,500) -->
+    <path d="M460 370 H 770 V 500"/>         <!-- Flight Path Simulation (top center 770,500) -->
+    <path d="M460 370 H 1050 V 500"/>        <!-- Portfolio Website (top center 1050,500) -->
 
-    <!-- Projects to detail pages (use a bus at y=420) -->
-    <path d="M460 206V420H490V500"/>
-    <path d="M460 420H770V500"/>
-    <path d="M460 420H1050V500"/>
+    <!-- Experience (bottom center 760,206) to Roles & Highlights.
+         Drop to the same clearance line (y=370), then continue vertically to the node top. -->
+    <path d="M760 206 V 370 H 760 V 620"/>
 
-    <!-- Experience to subsection (vertical trunk behind nodes) -->
-    <path d="M760 206V600V620"/>
-
-    <!-- Contact to actions (routed to the right, avoids nodes) -->
-    <path d="M1060 206H1135V620H1060V620"/>
-    <path d="M1060 206H1135V760H1060V760"/>
+    <!-- Contact (bottom center 1060,206) to actions.
+         Route to the right margin first (x=1140) to avoid running through other nodes, then down, then back left to each child. -->
+    <path d="M1060 206 H 1140 V 620 H 1060"/>  <!-- Email (top center 1060,620) -->
+    <path d="M1060 206 H 1140 V 760 H 1060"/>  <!-- Résumé (top center 1060,760) -->
   </g>
 
-  <!-- NODES (drawn AFTER so they cover any overlapping lines) -->
+  <!-- NODES (draw after connectors to visually sit above/cover any nearby lines) -->
 
   <!-- Root -->
   <g id="root">
