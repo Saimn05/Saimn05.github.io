@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <defs>
+    <style>
+      .label{fill:#e7f1f7;font:16px Inter,Segoe UI,Arial,sans-serif}
+      .hex{fill:#9fb0c3;font:14px Inter,Segoe UI,Arial,sans-serif}
+      .title{fill:#e7f1f7;font:700 22px Inter,Segoe UI,Arial,sans-serif}
+      .swatch{stroke:#0e1522;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="1200" height="420" fill="#0b1a2c" rx="12"/>
+  <text class="title" x="24" y="36">Moodboard — Palette</text>
+
+  <g transform="translate(24,64)">
+    <rect class="swatch" x="0" y="0" width="180" height="120" fill="#061021" rx="10"/>
+    <text class="label" x="0" y="150">Deep navy (bg)</text>
+    <text class="hex" x="0" y="172">#061021</text>
+  </g>
+
+  <g transform="translate(224,64)">
+    <rect class="swatch" x="0" y="0" width="180" height="120" fill="#0f2030" rx="10"/>
+    <text class="label" x="0" y="150">Card</text>
+    <text class="hex" x="0" y="172">#0f2030</text>
+  </g>
+
+  <g transform="translate(424,64)">
+    <rect class="swatch" x="0" y="0" width="180" height="120" fill="#7bd389" rx="10"/>
+    <text class="label" x="0" y="150">Accent A</text>
+    <text class="hex" x="0" y="172">#7BD389</text>
+  </g>
+
+  <g transform="translate(624,64)">
+    <rect class="swatch" x="0" y="0" width="180" height="120" fill="#4dd2ff" rx="10"/>
+    <text class="label" x="0" y="150">Accent B</text>
+    <text class="hex" x="0" y="172">#4DD2FF</text>
+  </g>
+
+  <g transform="translate(824,64)">
+    <rect class="swatch" x="0" y="0" width="180" height="120" fill="#f3b24a" rx="10"/>
+    <text class="label" x="0" y="150">Highlight</text>
+    <text class="hex" x="0" y="172">#F3B24A</text>
+  </g>
+
+  <g transform="translate(1024,64)">
+    <rect class="swatch" x="0" y="0" width="180" height="120" fill="#e7f1f7" rx="10"/>
+    <text class="label" x="0" y="150">Text on dark</text>
+    <text class="hex" x="0" y="172">#E7F1F7</text>
+  </g>
+
+  <text class="label" x="24" y="220">Usage: backgrounds / cards / accents / highlights / text. Palette chosen to meet WCAG AA contrast with body text over cards.</text>
+</svg>
