@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="900" viewBox="0 0 420 900">
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="1120" viewBox="0 0 420 1120">
   <defs>
     <!-- grid paper -->
     <pattern id="grid-m" width="26" height="26" patternUnits="userSpaceOnUse">
@@ -21,7 +21,7 @@
     </style>
   </defs>
 
-  <rect class="paper" x="0" y="0" width="420" height="900"/>
+  <rect class="paper" x="0" y="0" width="420" height="1120"/>
 
   <!-- Title -->
   <text class="title" x="14" y="34">Sketch — Home (mobile)</text>
@@ -39,31 +39,31 @@
 
   <!-- Sketches list (single column) -->
   <text class="note" x="12" y="282">Sketches list (single column)</text>
-  <g transform="translate(12,298)">
+  <g transform="translate(12,300)">
     <rect class="mark" x="0" y="0" width="396" height="120" rx="12"/>
     <path class="p" d="M6 6h384v108H6z"/>
 
-    <rect class="mark" x="0" y="136" width="396" height="120" rx="12"/>
-    <path class="p" d="M6 142h384v108H6z"/>
+    <rect class="mark" x="0" y="146" width="396" height="120" rx="12"/>
+    <path class="p" d="M6 152h384v108H6z"/>
 
-    <rect class="mark" x="0" y="272" width="396" height="120" rx="12"/>
-    <path class="p" d="M6 278h384v108H6z"/>
+    <rect class="mark" x="0" y="292" width="396" height="120" rx="12"/>
+    <path class="p" d="M6 298h384v108H6z"/>
   </g>
-  <!-- Bottom of sketches group ends at 298 + 272 + 120 = 690 -->
+  <!-- Bottom of sketches group: 300 + 292 + 120 = 712 -->
 
-  <!-- Projects cards (stacked) — moved down to avoid overlap -->
-  <text class="note" x="12" y="724">Projects cards (stacked)</text>
-  <g transform="translate(12,740)">
+  <!-- Projects cards (stacked) — moved further down -->
+  <text class="note" x="12" y="756">Projects cards (stacked)</text>
+  <g transform="translate(12,776)">
     <rect class="chip" x="0" y="0" width="396" height="120" rx="12"/>
     <path class="p" d="M6 6h384v108H6z"/>
     <path class="pd" d="M16 88h210M16 108h260"/>
 
-    <rect class="chip" x="0" y="136" width="396" height="120" rx="12"/>
-    <path class="p" d="M6 142h384v108H6z"/>
-    <path class="pd" d="M16 218h210M16 238h260"/>
+    <rect class="chip" x="0" y="146" width="396" height="120" rx="12"/>
+    <path class="p" d="M6 152h384v108H6z"/>
+    <path class="pd" d="M16 228h210M16 248h260"/>
   </g>
-  <!-- Bottom of projects group ends at 740 + 136 + 120 = 996 (outside viewBox is OK when used as an image; if you prefer, increase SVG height) -->
+  <!-- Bottom of projects group: 776 + 146 + 120 = 1042 -->
 
-  <!-- Footer note -->
-  <text class="note" x="12" y="888">Note: larger tap targets and clear hierarchy.</text>
+  <!-- Footer note placed safely below everything -->
+  <text class="note" x="12" y="1100">Note: larger tap targets and clear hierarchy.</text>
 </svg>
