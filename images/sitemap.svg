@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920" role="img" aria-labelledby="title desc">
   <title id="title">Sitemap — Saimn Zuhairi Portfolio</title>
-  <desc id="desc">Tree diagram showing Site Root with children: Home, Projects, Experience, Contact. Home branches to About, Design Sketches, Engineering &amp; Aerospace Projects, and GitHub Repositories. Projects branches to three project pages. Contact branches to Email and Résumé PDF.</desc>
+  <desc id="desc">Tree diagram showing Site Root with children: Home, Projects, Experience, Contact. Home branches to About, Design Sketches, Engineering &amp; Aerospace Projects, and GitHub Repositories. Projects branches to three project pages. Contact branches to Email and Résumé PDF. Lines are routed around nodes and drawn behind them.</desc>
 
   <defs>
     <style>
@@ -14,9 +14,41 @@
     </style>
   </defs>
 
+  <!-- Background -->
   <rect class="bg" x="0" y="0" width="1200" height="920" rx="14"/>
-
   <text class="title" x="24" y="44">Sitemap — Saimn Zuhairi Portfolio</text>
+
+  <!-- CONNECTORS (drawn FIRST so they sit behind nodes) -->
+  <g id="links" class="link">
+    <!-- Root to bus -->
+    <path d="M600 86V120"/>
+
+    <!-- Bus to Level 1 tops -->
+    <path d="M600 120H160V150"/>
+    <path d="M600 120H460V150"/>
+    <path d="M600 120H760V150"/>
+    <path d="M600 120H1060V150"/>
+
+    <!-- Home to its sections -->
+    <path d="M160 206V260H120V300"/>
+    <path d="M160 260H340V300"/>
+    <path d="M160 260H590V300"/>
+    <path d="M160 260H865V300"/>
+
+    <!-- Projects to detail pages (use a bus at y=420) -->
+    <path d="M460 206V420H490V500"/>
+    <path d="M460 420H770V500"/>
+    <path d="M460 420H1050V500"/>
+
+    <!-- Experience to subsection (vertical trunk behind nodes) -->
+    <path d="M760 206V600V620"/>
+
+    <!-- Contact to actions (routed to the right, avoids nodes) -->
+    <path d="M1060 206H1135V620H1060V620"/>
+    <path d="M1060 206H1135V760H1060V760"/>
+  </g>
+
+  <!-- NODES (drawn AFTER so they cover any overlapping lines) -->
 
   <!-- Root -->
   <g id="root">
@@ -25,37 +57,27 @@
   </g>
 
   <!-- Level 1 pages -->
-  <!-- Home -->
   <g id="home">
     <rect class="node" x="40" y="150" width="240" height="56" rx="10"/>
     <text class="text label-center" x="160" y="178">Home</text>
   </g>
 
-  <!-- Projects (index) -->
   <g id="projects">
     <rect class="node" x="340" y="150" width="240" height="56" rx="10"/>
     <text class="text label-center" x="460" y="178">Projects</text>
   </g>
 
-  <!-- Experience -->
   <g id="experience">
     <rect class="node" x="640" y="150" width="240" height="56" rx="10"/>
     <text class="text label-center" x="760" y="178">Experience</text>
   </g>
 
-  <!-- Contact -->
   <g id="contact">
     <rect class="node" x="940" y="150" width="240" height="56" rx="10"/>
     <text class="text label-center" x="1060" y="178">Contact</text>
   </g>
 
-  <!-- Connect root to level 1 -->
-  <path class="link" d="M600 86V120H160V150"/>
-  <path class="link" d="M600 86V120H460V150"/>
-  <path class="link" d="M600 86V120H760V150"/>
-  <path class="link" d="M600 86V120H1060V150"/>
-
-  <!-- Level 2: Home sections -->
+  <!-- Home sections -->
   <g id="home-sections">
     <rect class="node" x="20"  y="300" width="200" height="56" rx="10"/>
     <text class="small label-center" x="120" y="328">About</text>
@@ -68,15 +90,9 @@
 
     <rect class="node" x="740" y="300" width="250" height="56" rx="10"/>
     <text class="small label-center" x="865" y="328">Latest GitHub Repositories</text>
-
-    <!-- connect Home to its sections -->
-    <path class="link" d="M160 206V260H120V300"/>
-    <path class="link" d="M160 206V260H340V300"/>
-    <path class="link" d="M160 206V260H590V300"/>
-    <path class="link" d="M160 206V260H865V300"/>
   </g>
 
-  <!-- Level 2: Projects -> detail pages -->
+  <!-- Project details -->
   <g id="project-pages">
     <rect class="node" x="360" y="500" width="260" height="56" rx="10"/>
     <text class="small label-center" x="490" y="528">Gravity‑Powered Car</text>
@@ -86,32 +102,21 @@
 
     <rect class="node" x="920" y="500" width="260" height="56" rx="10"/>
     <text class="small label-center" x="1050" y="528">Portfolio Website</text>
-
-    <!-- connect Projects to each detail page -->
-    <path class="link" d="M460 206V460H490V500"/>
-    <path class="link" d="M460 206V460H770V500"/>
-    <path class="link" d="M460 206V460H1050V500"/>
   </g>
 
-  <!-- Level 2: Experience (optional subsections) -->
+  <!-- Experience subsection -->
   <g id="experience-sub">
     <rect class="node" x="620" y="620" width="280" height="56" rx="10"/>
     <text class="small label-center" x="760" y="648">Roles &amp; Highlights</text>
-    <!-- connector -->
-    <path class="link" d="M760 206V600V620"/>
   </g>
 
-  <!-- Level 2: Contact -> actions -->
+  <!-- Contact actions -->
   <g id="contact-actions">
     <rect class="node" x="940" y="620" width="240" height="56" rx="10"/>
     <text class="small label-center" x="1060" y="648">Email (mailto:)</text>
 
     <rect class="node" x="940" y="760" width="240" height="56" rx="10"/>
     <text class="small label-center" x="1060" y="788">Résumé (PDF)</text>
-
-    <!-- connect Contact -->
-    <path class="link" d="M1060 206V600H1060V620"/>
-    <path class="link" d="M1060 206V740H1060V760"/>
   </g>
 
   <!-- Legend -->
