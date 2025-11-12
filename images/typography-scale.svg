@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380">
+  <defs>
+    <style>
+      .bg{fill:#0b1a2c}.text{fill:#e7f1f7}.muted{fill:#9fb0c3}
+      .f{font-family:Inter,Segoe UI,Arial,sans-serif}
+      .h1{font-weight:800;font-size:32px}
+      .h2{font-weight:700;font-size:28px}
+      .h3{font-weight:600;font-size:20px}
+      .body{font-weight:400;font-size:16px}
+      .cap{font-weight:400;font-size:14px}
+      .rule{stroke:#23364e;stroke-width:2}
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="380" rx="12"/>
+  <text class="text f h1" x="24" y="60">H1 — 32 / 40</text>
+  <text class="muted f body" x="24" y="86">Primary page titles</text>
+  <line class="rule" x1="24" y1="96" x2="1176" y2="96"/>
+
+  <text class="text f h2" x="24" y="140">H2 — 28 / 36</text>
+  <text class="muted f body" x="24" y="166">Section headings</text>
+  <line class="rule" x1="24" y1="176" x2="1176" y2="176"/>
+
+  <text class="text f h3" x="24" y="220">H3 — 20 / 28</text>
+  <text class="muted f body" x="24" y="246">Card titles and subheads</text>
+  <line class="rule" x1="24" y1="256" x2="1176" y2="256"/>
+
+  <text class="text f body" x="24" y="300">Body — 16 / 24</text>
+  <text class="muted f cap" x="24" y="324">Paragraph text, lists</text>
+</svg>
