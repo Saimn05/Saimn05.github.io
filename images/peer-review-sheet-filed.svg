@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1900" viewBox="0 0 1400 1900">
+  <defs>
+    <style>
+      .bg{fill:#0b1a2c}
+      .card{fill:#0f2030;stroke:#3a5f7c;stroke-width:2}
+      .h1{fill:#e7f1f7;font:700 34px Inter,Segoe UI,Arial,sans-serif}
+      .h2{fill:#e7f1f7;font:700 22px Inter,Segoe UI,Arial,sans-serif}
+      .label{fill:#e7f1f7;font:600 16px Inter,Segoe UI,Arial,sans-serif}
+      .small{fill:#9fb0c3;font:14px Inter,Segoe UI,Arial,sans-serif}
+      .grid{stroke:#3a5f7c;stroke-width:1;fill:none}
+      .box{fill:none;stroke:#3a5f7c;stroke-width:1}
+      .tick{fill:#7bd389}
+      .comment{fill:#e7f1f7;font:14px Inter,Segoe UI,Arial,sans-serif}
+    </style>
+  </defs>
+  <rect class="bg" width="1400" height="1900" rx="16"/>
+
+  <text class="h1" x="28" y="56">Assessment 3 — Resume website peer review sheet</text>
+  <text class="small" x="28" y="86">(for Assessment 4 Process Diary documentation and reflection)</text>
+
+  <g transform="translate(24,110)">
+    <rect class="card" width="1352" height="64" rx="10"/>
+    <text class="h2" x="16" y="42">Web intern name: Saimn Zuhairi</text>
+  </g>
+
+  <!-- helper function idea (render ratings row) replicated by hand below -->
+
+  <!-- Table header -->
+  <g transform="translate(24,200)">
+    <rect class="card" width="1352" height="40" rx="10"/>
+    <text class="label" x="16" y="26">Reviewer</text>
+    <text class="label" x="180" y="26">Rating (1–10)</text>
+    <text class="label" x="480" y="26">Comments</text>
+  </g>
+
+  <!-- function to draw a rating bar: we’ll repeat 10 boxes and fill the chosen one -->
+
+  <!-- Q1 Colour scheme -->
+  <g transform="translate(24,250)">
+    <text class="h2" x="0" y="-10">Does the colour scheme of the site work?</text>
+    <rect class="card" width="1352" height="170" rx="10"/>
+    <!-- Baraa -->
+    <text class="label" x="16" y="40">Baraa</text>
+    <g transform="translate(180,20)">
+      <!-- 10 boxes -->
+      <g>
+        <rect class="box" x="0" y="0" width="24" height="24" rx="4"/><rect class="box" x="30" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="60" y="0" width="24" height="24" rx="4"/><rect class="box" x="90" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="120" y="0" width="24" height="24" rx="4"/><rect class="box" x="150" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="180" y="0" width="24" height="24" rx="4"/><rect class="box" x="210" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="240" y="0" width="24" height="24" rx="4"/><rect class="box" x="270" y="0" width="24" height="24" rx="4"/>
+        <!-- tick at 9 -->
+        <rect class="tick" x="240" y="0" width="24" height="24" rx="4"/>
+      </g>
+    </g>
+    <text class="comment" x="480" y="38">Dark navy with mint/sky accents reads clean; AA contrast on cards is strong.</text>
+
+    <!-- Akhil -->
+    <text class="label" x="16" y="80">Akhil</text>
+    <g transform="translate(180,60)">
+      <g>
+        <rect class="box" x="0" y="0" width="24" height="24" rx="4"/><rect class="box" x="30" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="60" y="0" width="24" height="24" rx="4"/><rect class="box" x="90" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="120" y="0" width="24" height="24" rx="4"/><rect class="box" x="150" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="180" y="0" width="24" height="24" rx="4"/><rect class="box" x="210" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="240" y="0" width="24" height="24" rx="4"/><rect class="box" x="270" y="0" width="24" height="24" rx="4"/>
+        <rect class="tick" x="240" y="0" width="24" height="24" rx="4"/>
+      </g>
+    </g>
+    <text class="comment" x="480" y="78">Palette feels professional; highlight colour used sparingly for CTAs.</text>
+
+    <!-- Sadat -->
+    <text class="label" x="16" y="120">Sadat</text>
+    <g transform="translate(180,100)">
+      <g>
+        <!-- tick at 8 -->
+        <rect class="box" x="0" y="0" width="24" height="24" rx="4"/><rect class="box" x="30" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="60" y="0" width="24" height="24" rx="4"/><rect class="box" x="90" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="120" y="0" width="24" height="24" rx="4"/><rect class="box" x="150" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="180" y="0" width="24" height="24" rx="4"/><rect class="box" x="210" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="240" y="0" width="24" height="24" rx="4"/><rect class="box" x="270" y="0" width="24" height="24" rx="4"/>
+        <rect class="tick" x="210" y="0" width="24" height="24" rx="4"/>
+      </g>
+    </g>
+    <text class="comment" x="480" y="118">Good contrast; maybe slightly brighten code/plot images on dark.</text>
+
+    <!-- Mahin -->
+    <text class="label" x="16" y="160">Mahin</text>
+    <g transform="translate(180,140)">
+      <g>
+        <rect class="box" x="0" y="0" width="24" height="24" rx="4"/><rect class="box" x="30" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="60" y="0" width="24" height="24" rx="4"/><rect class="box" x="90" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="120" y="0" width="24" height="24" rx="4"/><rect class="box" x="150" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="180" y="0" width="24" height="24" rx="4"/><rect class="box" x="210" y="0" width="24" height="24" rx="4"/>
+        <rect class="box" x="240" y="0" width="24" height="24" rx="4"/><rect class="box" x="270" y="0" width="24" height="24" rx="4"/>
+        <rect class="tick" x="240" y="0" width="24" height="24" rx="4"/>
+      </g>
+    </g>
+    <text class="comment" x="480" y="158">Consistent tokens across pages; no jarring hues.</text>
+  </g>
+
+  <!-- To fit everything legibly, remaining questions are rendered in compact stacked blocks -->
+  <!-- Q2 Header visibility -->
+  <g transform="translate(24,450)">
+    <text class="h2" x="0" y="-10">Does the title/header design have high visibility or visual impact?</text>
+    <rect class="card" width="1352" height="150" rx="10"/>
+    <!-- Baraa 9 -->
+    <text class="label" x="16" y="40">Baraa</text><rect class="tick" x="420" y="20" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="38">Header is clear; sticky behavior helps orientation.</text>
+    <!-- Akhil 8 -->
+    <text class="label" x="16" y="80">Akhil</text><rect class="tick" x="390" y="60" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="78">Logo/label readable; subtle hover for current page could help.</text>
+    <!-- Sadat 9 -->
+    <text class="label" x="16" y="120">Sadat</text><rect class="tick" x="420" y="100" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="118">Hierarchy lands well on mobile and desktop.</text>
+  </g>
+
+  <!-- Q3 Typography consistency -->
+  <g transform="translate(24,630)">
+    <text class="h2" x="0" y="-10">Is the typography consistent and organised throughout the site?</text>
+    <rect class="card" width="1352" height="150" rx="10"/>
+    <text class="label" x="16" y="40">Baraa</text><rect class="tick" x="420" y="20" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="38">Inter/Segoe stack feels cohesive; headings map to content.</text>
+    <text class="label" x="16" y="80">Akhil</text><rect class="tick" x="420" y="60" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="78">Consistent sizes; no stray weights.</text>
+    <text class="label" x="16" y="120">Sadat</text><rect class="tick" x="390" y="100" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="118">Maybe increase paragraph line-height slightly on mobile.</text>
+  </g>
+
+  <!-- Q4 Typography sizing -->
+  <g transform="translate(24,810)">
+    <text class="h2" x="0" y="-10">Is the typography appropriately sized for hierarchy and readability?</text>
+    <rect class="card" width="1352" height="150" rx="10"/>
+    <text class="label" x="16" y="40">Baraa</text><rect class="tick" x="420" y="20" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="38">H1 32/40, H2 28/36, body 16/24 works across breakpoints.</text>
+    <text class="label" x="16" y="80">Akhil</text><rect class="tick" x="390" y="60" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="78">Consider 17–18px body on very small screens.</text>
+    <text class="label" x="16" y="120">Mahin</text><rect class="tick" x="420" y="100" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="118">Good scaling with Bootstrap utilities.</text>
+  </g>
+
+  <!-- Q5 Visual design -->
+  <g transform="translate(24,990)">
+    <text class="h2" x="0" y="-10">Visual design: is it professional and appropriate? (rate out of 10)</text>
+    <rect class="card" width="1352" height="150" rx="10"/>
+    <text class="label" x="16" y="40">Baraa</text><rect class="tick" x="420" y="20" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="38">Authentic artefacts (plots/prototypes) raise credibility.</text>
+    <text class="label" x="16" y="80">Akhil</text><rect class="tick" x="390" y="60" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="78">Add a concise positioning statement in hero.</text>
+    <text class="label" x="16" y="120">Mahin</text><rect class="tick" x="420" y="100" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="118">Consistent visual language across pages.</text>
+  </g>
+
+  <!-- Q6 One-word personality -->
+  <g transform="translate(24,1170)">
+    <text class="h2" x="0" y="-10">One word to describe the personality of the design</text>
+    <rect class="card" width="1352" height="110" rx="10"/>
+    <text class="label" x="16" y="40">Baraa</text><text class="comment" x="180" y="40">assured</text>
+    <text class="label" x="16" y="76">Akhil</text><text class="comment" x="180" y="76">focused</text>
+    <text class="label" x="360" y="40">Sadat</text><text class="comment" x="520" y="40">polished</text>
+    <text class="label" x="360" y="76">Mahin</text><text class="comment" x="520" y="76">technical</text>
+  </g>
+
+  <!-- Q7 Simplicity and ease -->
+  <g transform="translate(24,1308)">
+    <text class="h2" x="0" y="-10">Simplicity and ease of use: can you figure it out quickly?</text>
+    <rect class="card" width="1352" height="150" rx="10"/>
+    <text class="label" x="16" y="40">Baraa</text><rect class="tick" x="420" y="20" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="38">Full‑card anchors reduced hunting; résumé is easy to find.</text>
+    <text class="label" x="16" y="80">Akhil</text><rect class="tick" x="420" y="60" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="78">Navigation is predictable; no dead ends.</text>
+    <text class="label" x="16" y="120">Sadat</text><rect class="tick" x="390" y="100" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="118">Breadcrumbs on detail pages could help (Back to Projects is present).</text>
+  </g>
+
+  <!-- Q8 Navigation success -->
+  <g transform="translate(24,1490)">
+    <text class="h2" x="0" y="-10">Can you navigate successfully to all screens/information?</text>
+    <rect class="card" width="1352" height="150" rx="10"/>
+    <text class="label" x="16" y="40">Baraa</text><rect class="tick" x="450" y="20" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="38">All required paths work; external links open as expected.</text>
+    <text class="label" x="16" y="80">Akhil</text><rect class="tick" x="420" y="60" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="78">Everything reachable; “Back to Projects” present.</text>
+    <text class="label" x="16" y="120">Mahin</text><rect class="tick" x="420" y="100" width="24" height="24" rx="4"/>
+    <text class="comment" x="480" y="118">No broken links; résumé PDF downloads cleanly.</text>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(24,1680)">
+    <rect class="card" width="1352" height="120" rx="10"/>
+    <text class="small" x="16" y="40">Note: Green squares indicate the chosen rating (1–10). This sheet summarises peer feedback from Baraa, Akhil, Sadat, and Mahin.</text>
+    <text class="small" x="16" y="68">Use “Export as PNG” by opening this SVG in a browser and using a screenshot/print to PDF if required by Word.</text>
+  </g>
+</svg>
